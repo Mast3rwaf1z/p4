@@ -1,1 +1,61 @@
-<mxfile host="app.diagrams.net" modified="2022-03-11T10:47:19.842Z" agent="5.0 (Windows)" etag="G7Z9ffTEpcZ-Ho7zr_NL" version="16.6.6" type="github"><diagram id="huIT8yfWPjrIG61Vbd0z" name="Page-1">5VhNj+I4EP01HInyTTgCDT3SzGhb6sPuzgW5EyexOrGzjoEwv37LiU0+mWY1MFppOHRSz07Z9eq5bPfM2eTVM0dF+pVFOJvZZlTNnKeZbXu+BX8lcG4Ax/QaIOEkaiCrBV7Jd6xAU6EHEuGy11EwlglS9MGQUYpD0cMQ5+zU7xazrD9qgRI8Al5DlI3RP0kk0gYNPLPFP2GSpHpky1QtOdKdFVCmKGKnDuRsZ86GMyaat7za4Exyp3lpvttdab1MjGMqbvlgR33zQN/fvn5bEyq+z53P3z7PVTKOKDuogNVkxVkzIDhBNJHW+pQSgV8LFMqmE+QbsFTkGVgWvMYkyzYsYxxsyqj8IkJliiPVzplAgjAK5nxpAjAOQUV1xFzgqgOpkJ4xy7HgZ+iiWh3XMxwVhZbYwnD9Bjm1KbMsy7CcBk47GXPchWGqqJESS3IZpuUTXhSl/4Fey/6YX3ADYr6FXkaFWiDBgO0Ix+iQQUTrUnD2jgdZuAPP1rJPMvA2oti1vDG/gfkgbm+gVjKmqZhB6TF9f7MBPmTYBNb4KiOJVKNgRQf9gt5w9sJKorT6xoRgOXTIBg0h0InB9xopPxegkzV2EBmhkBFdn8xB7mBim/o3yl49ZfmDloSjiOA2HJVZDT8RDt6baVHGZUaUM121bImkqJDU5FUii7VBsTgx/l4aJRJShgIPVqnr3WmVLk1jafcEZDnmSEC6VHb1Yz9KP87H+tF8kbzeJbpp/RkJrVH4nnB2oFEn03H9gy71YKuyaNWCtBGTShbTtZrPUyqE3AZXkgh7F0bUNQhshDGhEeZGCCPauwgJBA+Jl/BMUI7nLJ6LlIOCyjms4p3vqoY9i/eqYV/b2igxJ/DAGc5BBPsY1LaPM9kjxUhAmQuMgiYD8dxLO47TrzyWNRZOMCGc4EHCcW8Xjl5oISlDZpyAtgyXpdEkfw+1IicUZX1lFYzIKrI9AmWlwi7b6ETxsLf2yl5NFY+LpMaV4EOhTut7VOgmq1tXBIFnuDKATn0q4aP0PtpwHdvwg6E8jEUwVsjScJa/sLosJ0Ti1zu03JR6avH/OTDdMC/rDR5WtBkUVdsGb4l87oBH7Qjm1fhqmsYHN1yJvrQmDwcTp7ZRmodqyEkUXT0R1uK+qPUOWbaXwxTbo/z6E1uH86jk6svJD491NFrJ+0fL6vWjXHjgx8spGVdE/CXJMyzTV/bfjb2wlf1UKXZr49wxXqBSQ5Ayaw1GIeDGXbD0NKD8+QsNtA5r69y1hi6vZhQWNg/xDcdhgXiCxQ0dcdS7nY0V0lGAN6EAjUHdhYp07N/ppmShRniRNbgjQNfsC9D3Dc/te2mCVx92r2EDX57/sa+Gn5Ev0BM6d7rVO0V5fdquORiqf0OEl8ZjuxAuzP7E2hifq57riqDL1hvXFatU28T/s3AN1ug9ditvkI+Jk8yvrWNTR5kmSxE56jR92f7R2XI6DRN924vEKNvXfPwuybfGVyDbe1T+wWz/s9Qs7fbfc872Xw==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-03-11T10:54:58.549Z" agent="5.0 (Windows)" etag="r5AKkyvkUqv64SQfF6h3" version="16.6.6" type="github">
+  <diagram id="huIT8yfWPjrIG61Vbd0z" name="Page-1">
+    <mxGraphModel dx="506" dy="275" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Fn60unkbMZBintz-3KZK-5" value="" style="triangle;whiteSpace=wrap;html=1;fillColor=none;dashed=1;rotation=-95;" parent="1" vertex="1">
+          <mxGeometry x="279.79" y="40" width="111.13" height="347.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-12" value="" style="ellipse;whiteSpace=wrap;html=1;fontSize=8;fillColor=default;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="120" y="240" width="570" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-2" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#000000;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.satellite;rotation=-51.3;" parent="1" vertex="1">
+          <mxGeometry x="320" y="137" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-3" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/game-of-thrones-4/64/game_of_thrones_game_thrones_series_element_fire_flame_heat-128.png;rotation=-5;" parent="1" vertex="1">
+          <mxGeometry x="305" y="220" width="28" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-4" value="" style="shape=mxgraph.cisco.wireless.ground_terminal;html=1;pointerEvents=1;dashed=0;fillColor=#2E2A2A;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;rotation=-85.4;direction=south;" parent="1" vertex="1">
+          <mxGeometry x="515.3" y="225" width="29.39" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-9" value="&lt;font style=&quot;font-size: 8px&quot;&gt;Fire&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="260" y="220" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-10" value="" style="endArrow=none;html=1;fontSize=8;curved=1;exitX=0.106;exitY=0.172;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.895;entryY=0.167;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Fn60unkbMZBintz-3KZK-12" target="Fn60unkbMZBintz-3KZK-12" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="266.54" as="sourcePoint" />
+            <mxPoint x="560" y="266.54" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-13" value="Ground&lt;br&gt;station" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="540" y="220" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-14" value="&lt;div&gt;LEO&lt;/div&gt;&lt;div&gt;satellite&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="350" y="132" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Aync5TACeiiqdFRISOnV-1" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#000000;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.satellite;rotation=-30;" vertex="1" parent="1">
+          <mxGeometry x="520" y="20" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Aync5TACeiiqdFRISOnV-4" value="&lt;div&gt;GEO&lt;br&gt;&lt;/div&gt;&lt;div&gt;satellite&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="540" y="15" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Aync5TACeiiqdFRISOnV-5" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.07;entryY=0.93;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=none;" edge="1" parent="1" target="Aync5TACeiiqdFRISOnV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="140" as="sourcePoint" />
+            <mxPoint x="460" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Aync5TACeiiqdFRISOnV-6" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.07;entryY=0.93;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="Aync5TACeiiqdFRISOnV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="220" as="sourcePoint" />
+            <mxPoint x="460" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
