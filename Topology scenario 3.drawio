@@ -1,1 +1,55 @@
-<mxfile host="app.diagrams.net" modified="2022-03-11T11:58:40.329Z" agent="5.0 (Windows)" etag="daV6ndr2g27KbLEjYFgf" version="16.6.6" type="github"><diagram id="huIT8yfWPjrIG61Vbd0z" name="Page-1">7Vnbcts2EP0aPYpDEiIlPcqy5XaSTDx1ppe8aGASIlGTgAJCt3x9FyQg3iBb48hu2kQvJBaLBXD2YHdBDdA8398KvE4/8JhkA9+N9wN0PfB9z0UTeCjJQUvCcFRJEkFjLasF9/QrMUO1dENjUrQUJeeZpOu2MOKMkUi2ZFgIvmurrXjWnnWNE9IT3Ec460v/oLFMK+kkcGv5L4QmqZnZc3VPjo2yFhQpjvmuIUI3AzQXnMvqLd/PSabQM7hU4xYneo8LE4TJcwbMDiwKPs3mhNIv8eK3X+8/st+H48rKFmcbvWG9WHkwCEhBMUtU62qXUknu1zhSXTvwOMhSmWfQ8uB1RbNszjMuyoFotVr5UQTyGBcpibWS4BJLyhk0h1PfQSAqpOCPxIxknKm5OExDpaINCqDZ360GYEuEJPuGSO/+lvCcSHEAFd3rj6fOeFqN0nQcad/satd6nud4qBKnDc+i0dhxNTpYkyo5zlHjDi8aersbFix0N+zx4cPnK8rk1yF69/ndMHgtN2gwn/PA/xtdz38eXjADIeUcdDmTOkxNOmDHZIU3mTzF6AuAfIwuGmEbxKHRaeLrGcWLg3sGtgqyRlxw3TCczwEQtW8KoXaW0USxUfJ1Q/oeP5DsjhdUc/WBS8lzUMg6HRHgScD2FdZ2joKG2/hGZpSBS0yacPsBa17+eu4rl6x+0JMIHFNSb0e71oivqQDr1bIYF8ol2phJHr6SpHitoMn3icqaDiNyx8Vj4RRYKh5K0j2l7mXog3zUoo9noY9vYY//WuRBz5PHgEXzMlM3ffot/LnC0WMi+IbF7YwFP1ApJ5sV65oq2DRWdK8i6ZVez3UqpSpFZgoIfxHFbORQKEZWlMVEOBHM6C9iLDE8lLyAZ4JzMuSroUwF0KcYQkW0UGVR2bHkq6XuWJZt0yiIoPAgGcmBAcsVUG25ypRGSrCEIDdx1izpMOdCqRO5QTvu+BbiTCzEmbwScUbnE8ecsogWEXd2AFtGisKpnL+EQJFThrM2s9acqhByswXICi075lBL5PBv/Jk/s0WOI6X6YeBZotr53Yty1tDWJMEkcEZqA43gVMCg9DLcCLzAQR12BH12TB00fcPIMrUQJCxzs8pGLaaEXzbcdAyLMrXDaXYn633dB2+Jei4AQ2MI1lXZqrr6FRvZyzatrGWBpVzrubjLhJzG8clSsCT2kamXKO3CTtVhOf2hJW2g13KuuRw+WdCxeKbufzWqp4u4aCO2x/KY7Kn8U4HneG6o239V7bGv29d7jW7ZODQadxClYZPKa5WMwYYrc5NpYATaXjg2gtpg2To0W12TJz0Kh1pE5IxCWGKREHmGIolbt+M+QxoMCCwMMDKIuRCNtu07tY0WeoY7FX8bBBx1CBiGTjBqW6k2rwc2r8EdW0GXzBZbFT49W8AnfGiolVmiOL3sUbdab9/Q4aWyWB+EI7LfcDb6NdVtGRFM2HoQJmIVOkV8n4Grc0Yvkam6NPrX45itjKm8FNOtcdP7m4+NlNPosOjWN4iet0/Z+EGcj4K28z3kv5nzrZ/ePIvvf16cBxe9OKMLVUCB7b7zShdlK1nOChS3daB4/tj3Rqscrbb8M4Scmz+8/jXnTSPIGV+N+1Vw61Nww0Vt8Bplq3ssUquqdYpeUrT+vcnX93pdjZXcYQk6rFyD75blNYsXVOFQDoMSRUizg5jinLP4U0qZ6dKq3lMObla7T0Xi76TYRaNxJ1FNX1bpjjqVrud1iHiizH1BJWqFNfwP0dPOxR+QfQE6USN/P+yDZv2vaaVe//mMbv4B</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-03-11T12:05:47.605Z" agent="5.0 (Windows)" etag="QdKXBwdGdrWm5uNUBMVc" version="16.6.6" type="github">
+  <diagram id="huIT8yfWPjrIG61Vbd0z" name="Page-1">
+    <mxGraphModel dx="532" dy="289" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TLMzvcdvNROPmVEpLCWg-6" value="" style="triangle;whiteSpace=wrap;html=1;fillColor=none;dashed=1;rotation=-69.9;" vertex="1" parent="1">
+          <mxGeometry x="494" y="143" width="99.27" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="TLMzvcdvNROPmVEpLCWg-5" value="" style="triangle;whiteSpace=wrap;html=1;fillColor=none;dashed=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="331.36" y="113" width="99.27" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-5" value="" style="triangle;whiteSpace=wrap;html=1;fillColor=none;dashed=1;rotation=-108.9;" parent="1" vertex="1">
+          <mxGeometry x="158" y="135" width="99.27" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-12" value="" style="ellipse;whiteSpace=wrap;html=1;fontSize=8;fillColor=default;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="80" y="270" width="600" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-2" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#000000;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.satellite;rotation=-65;" parent="1" vertex="1">
+          <mxGeometry x="371" y="197" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-3" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/game-of-thrones-4/64/game_of_thrones_game_thrones_series_element_fire_flame_heat-128.png;rotation=-16.8;" parent="1" vertex="1">
+          <mxGeometry x="188" y="270" width="28" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-4" value="" style="shape=mxgraph.cisco.wireless.ground_terminal;html=1;pointerEvents=1;dashed=0;fillColor=#2E2A2A;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;rotation=-78;direction=south;" parent="1" vertex="1">
+          <mxGeometry x="536" y="270" width="21" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-9" value="&lt;font style=&quot;font-size: 8px&quot;&gt;Fire&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="198" y="260" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-10" value="" style="endArrow=none;html=1;fontSize=8;curved=1;exitX=0.106;exitY=0.172;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.895;entryY=0.167;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Fn60unkbMZBintz-3KZK-12" target="Fn60unkbMZBintz-3KZK-12" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="266.54" as="sourcePoint" />
+            <mxPoint x="560" y="266.54" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-13" value="Ground&lt;br&gt;station" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="512" y="294" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-14" value="&lt;div&gt;LEO&lt;/div&gt;&lt;div&gt;satellites&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="350" y="167" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TLMzvcdvNROPmVEpLCWg-2" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#000000;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.satellite;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="174" y="226" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TLMzvcdvNROPmVEpLCWg-3" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#000000;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.satellite;rotation=-20;" vertex="1" parent="1">
+          <mxGeometry x="557" y="230" width="20" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
