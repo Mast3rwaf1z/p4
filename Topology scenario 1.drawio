@@ -1,17 +1,23 @@
-<mxfile host="app.diagrams.net" modified="2022-03-11T09:24:19.768Z" agent="5.0 (Windows)" etag="E5Fu1Fv6ocJ84nRNWR6M" version="16.6.6" type="github">
+<mxfile host="app.diagrams.net" modified="2022-03-11T09:27:27.439Z" agent="5.0 (Windows)" etag="ZFu3J4q4OFsJ-iYx_NaM" version="16.6.6" type="github">
   <diagram id="huIT8yfWPjrIG61Vbd0z" name="Page-1">
-    <mxGraphModel dx="399" dy="217" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="407" dy="221" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="Fn60unkbMZBintz-3KZK-5" value="" style="triangle;whiteSpace=wrap;html=1;fillColor=none;dashed=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="160" height="233.08" as="geometry" />
+        </mxCell>
         <mxCell id="Fn60unkbMZBintz-3KZK-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
           <mxGeometry x="150" y="230" width="500" height="500" as="geometry" />
         </mxCell>
         <mxCell id="Fn60unkbMZBintz-3KZK-2" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.satellite;" vertex="1" parent="1">
-          <mxGeometry x="380" y="100" width="40" height="40" as="geometry" />
+          <mxGeometry x="380" y="80" width="40" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Fn60unkbMZBintz-3KZK-3" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/game-of-thrones-4/64/game_of_thrones_game_thrones_series_element_fire_flame_heat-128.png;rotation=-15;" vertex="1" parent="1">
           <mxGeometry x="333" y="211" width="28" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="Fn60unkbMZBintz-3KZK-4" value="" style="shape=mxgraph.cisco.wireless.ground_terminal;html=1;pointerEvents=1;dashed=0;fillColor=#2E2A2A;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;rotation=-80;direction=south;" vertex="1" parent="1">
+          <mxGeometry x="425" y="203.45999999999998" width="39" height="26.54" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
