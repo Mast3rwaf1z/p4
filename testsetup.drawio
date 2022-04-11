@@ -1,1 +1,34 @@
-<mxfile host="app.diagrams.net" modified="2022-04-11T08:26:18.717Z" agent="5.0 (X11)" version="17.4.0" etag="1woS4ww5e4VUwAwNAbUU" type="github"><diagram id="dPwd-rI6ftSlDEHzXap0">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-04-11T08:55:45.569Z" agent="5.0 (X11)" etag="dHLh2NrXiL2hfyTXNa7E" version="17.4.0" type="github">
+  <diagram id="dPwd-rI6ftSlDEHzXap0" name="Page-1">
+    <mxGraphModel dx="1422" dy="732" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="VtkBYponzJuRVTpX4Ivu-1" value="GS" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VtkBYponzJuRVTpX4Ivu-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VtkBYponzJuRVTpX4Ivu-3" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/super-batman/24/3151572_-_math_mathematics_pi-128.png" vertex="1" parent="1">
+          <mxGeometry x="330.5" y="280.5" width="39" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="VtkBYponzJuRVTpX4Ivu-4" value="" style="shape=mxgraph.signs.tech.video_camera;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="430" y="279.5" width="98" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="VtkBYponzJuRVTpX4Ivu-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="VtkBYponzJuRVTpX4Ivu-4" target="VtkBYponzJuRVTpX4Ivu-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VtkBYponzJuRVTpX4Ivu-6" value="Ethernet" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="VtkBYponzJuRVTpX4Ivu-2" target="VtkBYponzJuRVTpX4Ivu-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
