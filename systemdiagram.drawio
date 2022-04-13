@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2022-04-13T08:03:11.252Z" agent="5.0 (X11)" etag="q1avMKXXOObiXy9wsO_X" version="17.4.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-13T09:14:41.718Z" agent="5.0 (X11)" etag="Eei0D60xNv2xAFTqeQZZ" version="17.4.2" type="github">
   <diagram id="ZlZTLl9qBm76-yumSMIl" name="Page-1">
     <mxGraphModel dx="1422" dy="732" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="5bI8XY3w1S8-RSY9WLTQ-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="150" y="280" width="480" height="200" as="geometry" />
+          <mxGeometry x="150" y="280" width="470" height="200" as="geometry" />
         </mxCell>
         <mxCell id="5bI8XY3w1S8-RSY9WLTQ-3" value="Fire Detection" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="320" y="345" width="130" height="70" as="geometry" />
@@ -47,22 +47,22 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="5bI8XY3w1S8-RSY9WLTQ-12" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="680" y="280" width="330" height="200" as="geometry" />
+          <mxGeometry x="660" y="280" width="330" height="200" as="geometry" />
         </mxCell>
         <mxCell id="5bI8XY3w1S8-RSY9WLTQ-14" value="Receiver" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="700" y="345" width="130" height="70" as="geometry" />
+          <mxGeometry x="680" y="345" width="130" height="70" as="geometry" />
         </mxCell>
         <mxCell id="5bI8XY3w1S8-RSY9WLTQ-15" value="Display Image" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="860" y="345" width="130" height="70" as="geometry" />
+          <mxGeometry x="840" y="345" width="130" height="70" as="geometry" />
         </mxCell>
         <mxCell id="5bI8XY3w1S8-RSY9WLTQ-16" value="" style="endArrow=classic;html=1;rounded=0;fontSize=14;jumpStyle=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="5bI8XY3w1S8-RSY9WLTQ-14" target="5bI8XY3w1S8-RSY9WLTQ-15">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="590" y="460" as="sourcePoint" />
-            <mxPoint x="640" y="410" as="targetPoint" />
+            <mxPoint x="570" y="460" as="sourcePoint" />
+            <mxPoint x="620" y="410" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="5bI8XY3w1S8-RSY9WLTQ-17" value="Ground Station" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="690" y="290" width="110" height="30" as="geometry" />
+          <mxGeometry x="670" y="290" width="110" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
