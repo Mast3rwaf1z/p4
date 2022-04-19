@@ -2,13 +2,10 @@
 ```
 structure of project
 .
-├── BWpixelmap.pdf
-├── Circmap.pdf
-├── diagrams.pdf
+├── README.md
 ├── figures
 │   ├── gen.sh
 │   └── A very cool diagram.drawio
-├── README.md
 └── src
     ├── colorstesting.py
     ├── HSL_colorspace.py
