@@ -1,0 +1,12 @@
+name: P4Project
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - matplotlib=3.5
+  - numpy=1.22
+  - opencv=4.5
+  - pillow=9.1
+  - pip=22.0
+  - python=3.10
+  - scikit-image=0.19
