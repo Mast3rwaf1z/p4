@@ -1,6 +1,7 @@
 import cv2 as cv
 import numpy as np
 
+
 def main(Image):
     #image = cv.imread("wildfire.jpg")
     image = cv.imread(Image)
@@ -28,17 +29,34 @@ def main(Image):
     #cv.imshow('mask',mask)
     cv.imshow('res',res)
 
+    all_pixels = res.size
+    red_pixels = np.count_nonzero(res)
+    percentage = round(red_pixels * 100 / all_pixels, 2)
+    
+
+    print("Total amount of pixels in the image: " + str(all_pixels))
+    print("Amount of red pixels in the image: " + str(red_pixels))  
+    print("Percentage of red pixels: " + str(percentage) + "%")
+
+
+
+
     #if there are any white pixels on mask, sum will be > 0
     red_detected = np.sum(mask1)
     #yellow_detected = np.sum(mask2)
-    if red_detected > 0:
+    if red_detected > 0 and percentage < 1: 
         print('Potential fire detected!')
     else: 
         print('No fire detected..')
 
 
+
     cv.waitKey()
     cv.destroyAllWindows()
 
+
 if __name__ == "__main__":
     main("smallfire.jpg")
+
+
+    
