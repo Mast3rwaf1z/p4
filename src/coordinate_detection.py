@@ -1,7 +1,6 @@
 from cv2 import COLOR_BGR2GRAY, Mat, bitwise_and, cvtColor, imread, imshow, inRange, waitKey
 import numpy as np
-
-
+import numba
 
 def get_channel(image:Mat, index:int) -> np.ndarray:
     return np.array([[values[index] for values in column] for column in image])
