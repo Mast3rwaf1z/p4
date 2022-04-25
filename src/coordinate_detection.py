@@ -1,17 +1,19 @@
+#from multiprocessing import Process
+from threading import Thread
 from cv2 import COLOR_BGR2GRAY, Mat, bitwise_and, cvtColor, imread, imshow, inRange, waitKey
+from matplotlib.pyplot import gray
 import numpy as np
 import numba
 
 def get_channel(image:Mat, index:int) -> np.ndarray:
     return np.array([[values[index] for values in column] for column in image])
 
+
+    
+
 def get_coords(img:Mat) -> list[list[tuple]]:
-    blue  = get_channel(img, 0)
-    green = get_channel(img, 1)
-    red   = get_channel(img, 2)
-    grayscale = cvtColor(img, COLOR_BGR2GRAY)
-    coords:list[list[tuple]] = list()
-    for y in range(len(grayscale)):
+
+    def check_line():
         for x in range(len(grayscale[y])):
             grayscale[y][x] = 255 if red[y][x] > 165 and green[y][x] < 100 and blue[y][x] < 100 else 0
             if grayscale[y][x] != 0:
@@ -25,6 +27,7 @@ def get_coords(img:Mat) -> list[list[tuple]]:
                     for fire in coords:
                         if (x,y-1) in fire:
                             upper_fire = fire
+                    for fire in coords:
                         if (x-1,y) in fire:
                             left_fire_index = coords.index(fire)
                             upper_fire_index = coords.index(upper_fire)
@@ -54,6 +57,21 @@ def get_coords(img:Mat) -> list[list[tuple]]:
                         if (x-1, y-1) in fire:
                             fire.append((x,y))
                             grayscale[y][x] = 100
+
+
+
+    blue  = get_channel(img, 0)
+    green = get_channel(img, 1)
+    red   = get_channel(img, 2)
+    grayscale = cvtColor(img, COLOR_BGR2GRAY)
+    coords:list[list[tuple]] = list()
+    threads:list[Thread] = list()
+    for y in range(len(grayscale)):
+        threads.append(Thread(target = check_line))
+        threads[len(threads)-1].start()
+    for t in threads:
+        t.join()
+
     
     print(f'Number of fires:        {len(coords)}')
     print(f'size of fires:          {[str(len(fire))+"px" for fire in coords]}')
