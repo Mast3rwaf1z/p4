@@ -1,9 +1,7 @@
 #from multiprocessing import Process
 from threading import Thread
-from cv2 import COLOR_BGR2GRAY, Mat, bitwise_and, cvtColor, imread, imshow, inRange, waitKey
-from matplotlib.pyplot import gray
+from cv2 import COLOR_BGR2GRAY, Mat, cvtColor, imread, imshow, waitKey
 import numpy as np
-import numba
 
 def get_channel(image:Mat, index:int) -> np.ndarray:
     return np.array([[values[index] for values in column] for column in image])
@@ -94,4 +92,4 @@ if __name__ == "__main__":
         image = imread("smallfire.jpg")
     get_coords(image)
     post = perf_counter()
-    print(post-pre)
+    print(f'time:                   {post-pre}')
