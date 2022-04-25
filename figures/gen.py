@@ -5,7 +5,7 @@ from glob import glob
 def exec():
     system("mkdir exports")
     drawio_files = glob("*.drawio")
-    system("rm exports/*.pdf")
+    #system("rm exports/*.pdf")
     processes = list()
     for i in range(len(drawio_files)):
         name = drawio_files[i][:len(drawio_files[i])-7] + ".pdf"
