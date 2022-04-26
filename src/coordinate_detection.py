@@ -10,8 +10,12 @@ def get_channel(image:Mat, index:int) -> np.ndarray:
     
 
 def get_coords(img:Mat) -> list[list[tuple]]:
-
-    def check_line():
+    blue  = get_channel(img, 0)
+    green = get_channel(img, 1)
+    red   = get_channel(img, 2)
+    grayscale = cvtColor(img, COLOR_BGR2GRAY)
+    coords:list[list[tuple]] = list()
+    for y in range(len(grayscale)):
         for x in range(len(grayscale[y])):
             grayscale[y][x] = 255 if red[y][x] > 165 and green[y][x] < 100 and blue[y][x] < 100 else 0
             if grayscale[y][x] != 0:
@@ -55,20 +59,6 @@ def get_coords(img:Mat) -> list[list[tuple]]:
                         if (x-1, y-1) in fire:
                             fire.append((x,y))
                             grayscale[y][x] = 100
-
-
-
-    blue  = get_channel(img, 0)
-    green = get_channel(img, 1)
-    red   = get_channel(img, 2)
-    grayscale = cvtColor(img, COLOR_BGR2GRAY)
-    coords:list[list[tuple]] = list()
-    threads:list[Thread] = list()
-    for y in range(len(grayscale)):
-        threads.append(Thread(target = check_line))
-        threads[len(threads)-1].start()
-    for t in threads:
-        t.join()
 
     
     print(f'Number of fires:        {len(coords)}')
