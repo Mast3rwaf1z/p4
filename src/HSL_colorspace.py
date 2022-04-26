@@ -5,7 +5,7 @@ import numpy as np
 from coordinate_detection import get_coords
 
 
-def main(Image):
+def detect_fire(Image) -> tuple[bool, cv.Mat]:
     #image = cv.imread("wildfire.jpg")
     image = cv.imread(Image)
     hsv = cv.cvtColor(image, cv.COLOR_BGR2HLS)                  # Converting BGR color scheme to HSV
@@ -40,36 +40,32 @@ def main(Image):
     print("Total amount of pixels in the image: " + str(all_pixels))
     print("Amount of red pixels in the image: " + str(red_pixels))  
     print("Percentage of red pixels: " + str(percentage) + "%")
-
-
-
+    
 
     #if there are any white pixels on mask, sum will be > 0
     red_detected = np.sum(mask1)
     #yellow_detected = np.sum(mask2)
     if red_detected > 0 and percentage < 1: 
         print('Potential fire detected!')
+        result = True
+        return True, res
     else: 
         print('No fire detected..')
-
-
-
-    cv.waitKey()
-    cv.destroyAllWindows()
-
-    return res
+        return False, res
 
 
 if __name__ == "__main__":
     from sys import argv
-    if len(argv) == 2:
-        res = argv[1]
+    if len(argv) > 1:
+        _, res = detect_fire(argv[1])
     else:
-        res = main("smallfire.jpg")
+        _, res = detect_fire("smallfire.jpg")
+    #if _ is true, start compressing image
+
     pre = perf_counter()
     gray = cv.cvtColor(res, cv.COLOR_BGR2GRAY)
     matrix = [[gray[y][x] for x in range(len(gray[y]))] for y in range(len(gray))]
-    num_fires, sizes, coordinates, _ = get_coords(matrix)
+    num_fires, sizes, coordinates, _ = get_coords(matrix) #use fire identification algorithm to get data
     post = perf_counter()
     
     print(f'Number of fires:        {num_fires}')

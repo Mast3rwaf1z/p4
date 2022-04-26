@@ -1,52 +1,48 @@
 #from multiprocessing import Process
-from cv2 import Mat, imread
+from cv2 import Mat, imread, imshow, waitKey
 import numpy as np
 
 def get_channel(image:Mat, index:int) -> np.ndarray:
     return np.array([[values[index] for values in column] for column in image])
 
+def get_fire(coords, coordinate): #get the list of pixels contained in the fire at a certain index
+    for fire in coords:
+        if coordinate in fire:
+            return fire
+
+def check_line(matrix:list[list[int]], coords:list[list[tuple[int]]], y:int):
+    for x in range(len(matrix[y])):
+        if matrix[y][x] != 0:
+            upper = matrix[y-1][x]
+            left = matrix[y][x-1]
+            upperleft = matrix[y-1][x-1]
+            if upper == 0 and left == 0 and upperleft == 0:
+                coords.append([(x,y)])
+            elif upper != 0 and left != 0:
+                upper_fire = get_fire(coords, (x, y-1))
+                left_fire = get_fire(coords, (x-1, y))
+                if left_fire == upper_fire:
+                    upper_fire.append((x,y))
+                else:
+                    for _ in range(len(left_fire)):
+                        upper_fire.append(left_fire.pop(0))
+                    upper_fire.append((x,y))
+                    if left_fire == []:
+                        coords.pop(coords.index(left_fire))
+            elif upper != 0:
+                get_fire(coords, (x, y-1)).append((x,y))
+            elif left != 0:
+                get_fire(coords, (x-1, y)).append((x,y))
+            elif upperleft != 0:
+                get_fire(coords, (x-1, y-1)).append((x,y))
+    return coords
+
+
 def get_coords(matrix:list[list[int]]) -> tuple[int, list[str], list[tuple], list[list[tuple]]]:
     #expect the given matrix is of data type list[list[int]]
-    coords:list[list[tuple]] = list()
+    coords:list[list[tuple[int]]] = list()
     for y in range(len(matrix)):
-        for x in range(len(matrix[y])):
-            if matrix[y][x] != 0:
-                upper = matrix[y-1][x]
-                left = matrix[y][x-1]
-                upperleft = matrix[y-1][x-1]
-                if upper == 0 and left == 0 and upperleft == 0:
-                    coords.append([(x,y)])
-                    matrix[y][x] = 100
-                elif upper != 0 and left != 0:
-                    for fire in coords:
-                        if (x,y-1) in fire:
-                            upper_fire = fire
-                    for fire in coords:
-                        if (x-1,y) in fire:
-                            left_fire_index = coords.index(fire)
-                            upper_fire_index = coords.index(upper_fire)
-                            if left_fire_index == upper_fire_index:
-                                coords[upper_fire_index].append((x,y))
-                                break
-                            for _ in range(len(fire)):
-                                coords[upper_fire_index].append(coords[left_fire_index].pop(0))
-                            coords[upper_fire_index].append((x,y))
-                            if coords[left_fire_index] == []:
-                                coords.pop(left_fire_index)
-
-                elif upper != 0:
-                    for fire in coords:
-                        if (x,y-1) in fire:
-                            fire.append((x,y))
-                elif left != 0:
-                    for fire in coords:
-                        if (x-1,y) in fire:
-                            fire.append((x,y))
-                elif upperleft != 0:
-                    for fire in coords:
-                        if (x-1, y-1) in fire:
-                            fire.append((x,y))
-
+        coords = check_line(matrix, coords, y)
     
     return len(coords), [f'{len(fire)}px' for fire in coords], [coordinate[0] for coordinate in coords], coords
 
