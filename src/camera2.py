@@ -26,4 +26,4 @@ def captureRawData():
 
 if __name__ == "__main__":
     location = capturePhoto()
-    print("Location: %" % location)
+    print("Location: %s" % location)
