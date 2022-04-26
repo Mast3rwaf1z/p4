@@ -1,13 +1,11 @@
 from picamera import PiCamera
-from time import sleep
-import time
-import calender
+from datetime import timezone
+import datetime
 
-
-camera = PiCamera()
-camera.resolution =(2592,1944)
-
-current_GMT = time.gmtime()
-ts = calendar.timegm(current_GMT)
-camera.capture('/home/pi/Desktop/{ts}.jpeg')
-#camera.stop_preview()
+def capturePhoto():
+    camera = PiCamera()
+    camera.resolution =(2592,1944)
+    dt = datetime.datetime.now(timezone.utc)
+    utc_time = dt.replace(tzinfo=timezone.utc)
+    utc_timestamp = utc_time.timestamp()
+    camera.capture('/home/pi/Desktop/%s.jpeg' % utc_timestamp)
