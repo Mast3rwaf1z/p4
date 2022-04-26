@@ -9,3 +9,8 @@ def capturePhoto():
     utc_time = dt.replace(tzinfo=timezone.utc)
     utc_timestamp = utc_time.timestamp()
     camera.capture('/home/pi/Desktop/%s.jpeg' % utc_timestamp)
+    return '/home/pi/Desktop/%s.jpeg' % utc_timestamp
+
+if __name__ == "__main__":
+    string = capturePhoto()
+    print(string)
