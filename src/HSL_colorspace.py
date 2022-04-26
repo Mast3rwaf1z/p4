@@ -1,39 +1,40 @@
+from time import perf_counter
 import cv2 as cv
 import numpy as np
 
+from coordinate_detection import get_coords
+
 
 def main(Image):
+    #image = cv.imread("wildfire.jpg")
     image = cv.imread(Image)
-    hsv = cv.cvtColor(image, cv.COLOR_BGR2HSV)                  # Converting BGR color scheme to HSV
-    rgb = cv.cvtColor(image, cv.COLOR_BGR2RGB)
+    hsv = cv.cvtColor(image, cv.COLOR_BGR2HLS)                  # Converting BGR color scheme to HSV
     print(hsv.shape)
 
     # defining lower mask (red has lower hue values 0-10)
-    #lower_red = np.array([0,50,50])                         # Hue, saturation, value, in the array
-    #upper_red = np.array([10,255,255])
+    lower_red = np.array([0,50,50])                         # Hue, saturation, value, in the array
+    upper_red = np.array([10,255,255])
     
 
     # Threshold the HSV image to get only blue colors
-    #mask0 = cv.inRange(hsv, lower_red, upper_red)
+    mask0 = cv.inRange(hsv, lower_red, upper_red)
 
     #upper mask (red has hue values 170-180)
-    lower_red = np.array([160,0,0])
-    upper_red = np.array([255,100,100])
-    mask1 = cv.inRange(rgb,lower_red, upper_red)
+    lower_red1 = np.array([170,100,50])
+    upper_red1 = np.array([180,255,255])
+    mask1 = cv.inRange(hsv,lower_red1, upper_red1)
 
-
-    #mask = mask0+mask1    
+    mask = mask0+mask1    
 
     # Bitwise-AND mask and original image
-    res = cv.bitwise_and(rgb, rgb, mask= mask1)
-    cv.imshow('image',image)
+    res = cv.bitwise_and(image,image, mask= mask)
+    #cv.imshow('image',image)
     #cv.imshow('mask',mask)
-    cv.imshow('res',cv.cvtColor(res, cv.COLOR_RGB2BGR))
+    #cv.imshow('res',res)
 
     all_pixels = res.size
     red_pixels = np.count_nonzero(res)
     percentage = round(red_pixels * 100 / all_pixels, 2)
-    
 
 
     print("Total amount of pixels in the image: " + str(all_pixels))
@@ -56,15 +57,22 @@ def main(Image):
     cv.waitKey()
     cv.destroyAllWindows()
 
+    return res
 
 
 if __name__ == "__main__":
     from sys import argv
-    if len(argv) >= 2:
-        for i in range(1,len(argv)):
-            main(argv[i])
+    if len(argv) == 2:
+        res = argv[1]
     else:
-        main("smallfire.jpg")
-
-
+        res = main("smallfire.jpg")
+    pre = perf_counter()
+    gray = cv.cvtColor(res, cv.COLOR_BGR2GRAY)
+    matrix = [[gray[y][x] for x in range(len(gray[y]))] for y in range(len(gray))]
+    num_fires, sizes, coordinates, _ = get_coords(matrix)
+    post = perf_counter()
     
+    print(f'Number of fires:        {num_fires}')
+    print(f'size of fires:          {sizes}')
+    print(f'coordinate of fires:    {coordinates}')
+    print(f'time:                   {post-pre}')
