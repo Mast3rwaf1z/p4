@@ -1,5 +1,6 @@
 from socket import *
 import os
+import time
 
 SERVER_IP = "127.0.0.1"
 SERVER_PORT = 8889
@@ -29,4 +30,6 @@ def send(image_path):
     send_image(socket, image_path)
 
 if __name__ == "__main__":
-    send("../images/smallfire.jpg")
+    send("../images/nofire.jpg")
+    time.sleep(5)
+    send("../images/firefirefire.jpg")
