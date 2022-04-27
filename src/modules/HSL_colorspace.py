@@ -1,15 +1,11 @@
-from time import perf_counter
 import cv2 as cv
 import numpy as np
 
-from coordinate_detection import get_coords
 
-
-def detect_fire(Image) -> tuple[bool, cv.Mat]:
+def detect_fire(image:cv.Mat) -> tuple[bool, cv.Mat]:
     #image = cv.imread("wildfire.jpg")
-    image = cv.imread(Image)
     hsv = cv.cvtColor(image, cv.COLOR_BGR2HLS)                  # Converting BGR color scheme to HSV
-    print(hsv.shape)
+    #print(hsv.shape)
 
     # defining lower mask (red has lower hue values 0-10)
     lower_red = np.array([0,50,50])                         # Hue, saturation, value, in the array
@@ -37,38 +33,31 @@ def detect_fire(Image) -> tuple[bool, cv.Mat]:
     percentage = round(red_pixels * 100 / all_pixels, 2)
 
 
-    print("Total amount of pixels in the image: " + str(all_pixels))
-    print("Amount of red pixels in the image: " + str(red_pixels))  
-    print("Percentage of red pixels: " + str(percentage) + "%")
     
 
     #if there are any white pixels on mask, sum will be > 0
     red_detected = np.sum(mask1)
     #yellow_detected = np.sum(mask2)
+    data = (all_pixels, red_pixels, percentage)
     if red_detected > 0 and percentage < 1: 
-        print('Potential fire detected!')
-        result = True
-        return True, res
+        #print('Potential fire detected!')
+        return True, res, data
     else: 
-        print('No fire detected..')
-        return False, res
+        #print('No fire detected..')
+        return False, res, data
 
 
 if __name__ == "__main__":
     from sys import argv
-    if len(argv) > 1:
-        _, res = detect_fire(argv[1])
-    else:
-        _, res = detect_fire("smallfire.jpg")
-    #if _ is true, start compressing image
+    from os import chdir, path
+    chdir(path.dirname(argv[0])) #change directory to script location
 
-    pre = perf_counter()
-    gray = cv.cvtColor(res, cv.COLOR_BGR2GRAY)
-    matrix = [[gray[y][x] for x in range(len(gray[y]))] for y in range(len(gray))]
-    num_fires, sizes, coordinates, _ = get_coords(matrix) #use fire identification algorithm to get data
-    post = perf_counter()
-    
-    print(f'Number of fires:        {num_fires}')
-    print(f'size of fires:          {sizes}')
-    print(f'coordinate of fires:    {coordinates}')
-    print(f'time:                   {post-pre}')
+    if len(argv) > 1:
+        image = cv.imread(argv[1])
+    else:
+        image = cv.imread("../images/smallfire.jpg")
+
+    _, res, data = detect_fire(image)
+    print("Total amount of pixels in the image: " + str(data[0]))
+    print("Amount of red pixels in the image: " + str(data[1]))  
+    print("Percentage of red pixels: " + str(data[2]) + "%")

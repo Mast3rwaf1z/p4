@@ -51,20 +51,20 @@ def get_coords(matrix:list[list[int]]) -> tuple[int, list[str], list[tuple], lis
 if __name__ == "__main__":
     from time import perf_counter
     from sys import argv
-    pre = perf_counter()
+    from os import chdir, path
+    chdir(path.dirname(argv[0])) #change directory to script location
+    
     if len(argv) > 1:
         image = imread(argv[1])
     else:
-        image = imread("smallfire.jpg")
+        image = imread("../images/smallfire.jpg")
 
     blue  = get_channel(image, 0)
     green = get_channel(image, 1)
     red   = get_channel(image, 2)
     matrix = [[255 if red[y][x] > 165 and green[y][x] < 100 and blue[y][x] < 100 else 0 for x in range(len(image[y]))] for y in range(len(image))]
     num_fires, sizes, coordinates, _ = get_coords(matrix)
-    post = perf_counter()
 
     print(f'Number of fires:        {num_fires}')
     print(f'size of fires:          {sizes}')
     print(f'coordinate of fires:    {coordinates}')
-    print(f'time:                   {post-pre}')
