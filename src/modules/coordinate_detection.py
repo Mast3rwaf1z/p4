@@ -1,9 +1,8 @@
 #from multiprocessing import Process
-from cv2 import Mat, imread, imshow, waitKey
-import numpy as np
-
-def get_channel(image:Mat, index:int) -> np.ndarray:
-    return np.array([[values[index] for values in column] for column in image])
+try:
+    from modules.get_channel import get_channel
+except:
+    from get_channel import get_channel
 
 def get_fire(coords, coordinate): #get the list of pixels contained in the fire at a certain index
     for fire in coords:
@@ -49,7 +48,7 @@ def get_coords(matrix:list[list[int]]) -> tuple[int, list[str], list[tuple], lis
 
 
 if __name__ == "__main__":
-    from time import perf_counter
+    from cv2 import imread
     from sys import argv
     from os import chdir, path
     chdir(path.dirname(argv[0])) #change directory to script location
