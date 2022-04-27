@@ -1,5 +1,5 @@
 #this is main
-from cv2 import COLOR_BGR2GRAY, cvtColor, imread
+from cv2 import imread
 from sys import argv
 
 from modules.fire_detection import detect_fire
@@ -11,12 +11,15 @@ if len(argv) > 1:
 else:
     image = imread("images/smallfire.jpg")
     print(f'Analysing image:            {"images/smallfire.jpg"}')
-state, processed_image, data = detect_fire(image, "HSL")
+if len(argv) == 3:
+    color_type = argv[2]
+else:
+    color_type = "rgb"
 
-#tmp = processed_image # if using rgb
-tmp = cvtColor(processed_image, COLOR_BGR2GRAY) #if using HSL
-matrix = [[tmp[j][i] for i in range(len(processed_image[j]))] for j in range(len(processed_image))]
-num_fires, sizes, coordinates, coords = get_coords(matrix)
+state, processed_image, data = detect_fire(image, color_type)
+
+num_fires, sizes, coordinates, coords = get_coords(processed_image)
+
 if state:
     print(f'Potential fire detected')
 else:
