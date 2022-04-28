@@ -4,7 +4,6 @@ import threading
 import sys
 import subprocess
 
-
 HOST = ''
 PORT = 8889
 BUFFER_SIZE = 1024
