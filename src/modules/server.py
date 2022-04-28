@@ -1,15 +1,19 @@
 from socket import *
 import cv2
 import threading
+import sys
+import subprocess
+
 
 HOST = ''
 PORT = 8889
 BUFFER_SIZE = 1024
 
-def display_image_thread(filepath):
-    x = cv2.imread(filepath)
-    cv2.imshow(filepath, x)
-    cv2.waitKey()
+def openImage(path):
+    imageViewerFromCommandLine = {'linux':'xdg-open',
+                                  'win32':'explorer',
+                                  'darwin':'open'}[sys.platform]
+    subprocess.run([imageViewerFromCommandLine, path])
 
 def create_server():
     s = socket(AF_INET,SOCK_STREAM)
@@ -42,11 +46,7 @@ def receiver():
         print('* Connection received from {}'.format(a))
         name = recv_name(c)
         recv_image(c, name)
-        thread = threading.Thread(target=display_image_thread, args=('photos/'+name, ))
-        threads.append(thread)
-        thread.start()
-    for x in threads:
-        x.join()
+        openImage('photos/'+name)
     socket.close()
 
 if __name__ == "__main__":
