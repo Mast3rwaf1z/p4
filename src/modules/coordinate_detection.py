@@ -92,7 +92,7 @@ if __name__ == "__main__":
     matrix = [[255 if red[y][x] > 165 and green[y][x] < 100 and blue[y][x] < 100 else 0 for x in range(len(image[y]))] for y in range(len(image))]
     num_fires, sizes, coordinates, _ = get_coords(matrix)
 
-    get_coords_pool(matrix)
+    #get_coords_pool(matrix)
 
     print(f'Number of fires:        {num_fires}')
     print(f'size of fires:          {sizes}')
