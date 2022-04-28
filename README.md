@@ -8,10 +8,16 @@ structure of project
 │   ├── gen.sh
 │   └── A very cool diagram.drawio
 └── src
-    ├── colorstesting.py
-    ├── HSL_colorspace.py
-    ├── imagearray.py
-    └── kadanes_maxsum.py
-```
+    ├── fire_detection_subsystem.py
+    └── modules
+        ├── camera.py
+        ├── client.py
+        ├── colorstesting.py
+        ├── coordinate_detection.py
+        ├── fire_detection.py
+        ├── get_channel.py
+        ├── imagearray.py
+        ├── kadanes_maxsum.py
+        ├── ModdyColorDetector.py
 
 <img src="https://about.skademaskinen.win/fire.gif">
