@@ -19,5 +19,6 @@ structure of project
         ├── imagearray.py
         ├── kadanes_maxsum.py
         ├── ModdyColorDetector.py
-
+   
+```
 <img src="https://about.skademaskinen.win/fire.gif">
