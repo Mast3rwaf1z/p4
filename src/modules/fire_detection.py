@@ -1,13 +1,28 @@
 from time import perf_counter
 import cv2 as cv
 import numpy as np
+from threading import Thread
+from multiprocessing import Manager, Pool, Process, Queue
 try:
     from modules.get_channel import get_channel
 except:
     from get_channel import get_channel
 
+def return_var(function, results, index):
+    results[index] = function()
 
-def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, list[list[int]]]:
+def mp_return(function, results:Queue):
+    results.put(function())
+    print()
+
+
+def get_channel_from_index(index):
+    return get_channel(image, index)
+
+def process_line(values:tuple[np.ndarray]):
+    return np.array([255 if values[2][i] > 165 and values[1][i] < 100 and values[0][i] < 100 else 0 for i in range(len(values[0]))])
+
+def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, np.ndarray, tuple[int, int, float]]:
     #image = cv.imread("wildfire.jpg")
     match color_type.lower():
         case "hsl":
@@ -22,7 +37,7 @@ def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, list[list[int]]]:
             mask1 = cv.inRange(hsl, lower_red1, upper_red1)
             mask = mask0+mask1
             tmp = cv.bitwise_and(hsl, hsl, mask=mask) # Bitwise-AND mask and original image
-            result = [[tmp[i][j][0] for j in range(len(tmp[i]))] for i in range(len(tmp))]
+            result = np.array([[tmp[i][j][0] for j in range(len(tmp[i]))] for i in range(len(tmp))])
         case "hsv":
             hsv = cv.cvtColor(image, cv.COLOR_BGR2HSV)
             lower_red = np.array([0,50,50])
@@ -33,7 +48,24 @@ def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, list[list[int]]]:
             blue  = get_channel(image, 0)
             green = get_channel(image, 1)
             red   = get_channel(image, 2)
-            result = [[255 if red[i][j] > 165 and green[i][j] < 100 and blue[i][j] < 100 else 0 for j in range(len(image[i]))] for i in range(len(image))]
+            result = np.array([[255 if red[i][j] > 165 and green[i][j] < 100 and blue[i][j] < 100 else 0 for j in range(len(image[i]))] for i in range(len(image))])
+        case "threaded_rgb":
+            threads:list[Thread] = list()
+            results = np.array([np.ndarray, np.ndarray, np.ndarray])
+            threads.append(Thread(target=return_var, args=(lambda: get_channel(image, 0), results, 0,)))
+            threads.append(Thread(target=return_var, args=(lambda: get_channel(image, 1), results, 1,)))
+            threads.append(Thread(target=return_var, args=(lambda: get_channel(image, 2), results, 2,)))
+            for thread in threads:
+                thread.start()
+            for thread in threads:
+                thread.join()
+            result = np.array([[255 if results[2][i][j] > 165 and results[1][i][j] < 100 and results[0][i][j] < 100 else 0 for j in range(len(image[i]))] for i in range(len(image))])
+        case "pool_rgb":
+            with Pool(3) as p:
+                results = p.map(get_channel_from_index, [0,1,2])
+            with Pool(4) as p:
+                result = np.array(p.map(process_line, [(results[0][i], results[1][i], results[2][i]) for i in range(len(image))]))
+            
 
     all_pixels = sum([len(result[i]) for i in range(len(result))])
     red_pixels = np.count_nonzero(result)
@@ -49,7 +81,7 @@ def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, list[list[int]]]:
         return True, result, data
     else: 
         #print('No fire detected..')
-        return False, [[result[i][j] for j in range(len(result[i]))] for i in range(len(result))], data
+        return False, result, data
 
 
 if __name__ == "__main__":
@@ -62,13 +94,16 @@ if __name__ == "__main__":
         chdir(path.dirname(argv[0])) #change directory to script location
         image = cv.imread("../images/smallfire.jpg")
     hsl_pre = perf_counter()
-    _, res, data = detect_fire(image, "hsl")
+    _, result, data = detect_fire(image, "rgb")
     hsl_post = perf_counter()
     rgb_pre = perf_counter()
-    detect_fire(image, "rgb")
+    _, pool, data = detect_fire(image, "pool_rgb")
     rgb_post = perf_counter()
     print("Total amount of pixels in the image: " + str(data[0]))
     print("Amount of red pixels in the image: " + str(data[1]))  
     print("Percentage of red pixels: " + str(data[2]) + "%")
-    print(f'hsl time:   {hsl_post-hsl_pre}')
-    print(f'rgb time:   {rgb_post-rgb_pre}')
+    print(f'rgb time:       {hsl_post-hsl_pre}')
+    print(f'rgb+pool time:  {rgb_post-rgb_pre}')
+    for i in range(len(result)):
+        for j in range(len(result[i])):
+            assert result[i][j] == pool[i][j]# if true the algorithm is calculating correctly
