@@ -1,6 +1,5 @@
 from socket import *
 import cv2
-import threading
 import sys
 import subprocess
 
@@ -21,13 +20,16 @@ def create_server():
     return s
 
 def recv_name(socket):
-    data = socket.recv(128)
-    name = data.decode('utf-8')
-    socket.send(b"Name Received")
-    return name
+    data = socket.recv(BUFFER_SIZE)
+    for i in data:
+        if(i == 35):
+            name = data[:data.index(i)]
+            data = data[data.index(i)+1:]
+    return name.decode('utf-8'), data
 
-def recv_image(socket, name):
+def recv_image(socket, name, data_initial):
     file = open("photos/"+name, "wb")
+    file.write(data_initial)
     while True:
         data = socket.recv(BUFFER_SIZE)
         while data:
@@ -43,8 +45,8 @@ def receiver():
     while True:
         c,a = s.accept()
         print('* Connection received from {}'.format(a))
-        name = recv_name(c)
-        recv_image(c, name)
+        name, data = recv_name(c)
+        recv_image(c, name, data)
         openImage('photos/'+name)
     socket.close()
 

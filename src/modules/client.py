@@ -20,9 +20,9 @@ def send_image(socket, image_location):
     socket.close()
 
 def send_name(socket, image_location):
-    file_name = os.path.basename(image_location)
+    file_name = os.path.basename(image_location) + "#"
     socket.send(file_name.encode())
-    socket.recv(512)
+    #socket.recv(512)
 
 def send(image_path):
     socket = connectToServer()
