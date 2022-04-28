@@ -18,7 +18,7 @@ structure of project
         ├── get_channel.py
         ├── imagearray.py
         ├── kadanes_maxsum.py
-        ├── ModdyColorDetector.py
+        └── ModdyColorDetector.py
    
 ```
 <img src="https://about.skademaskinen.win/fire.gif">
