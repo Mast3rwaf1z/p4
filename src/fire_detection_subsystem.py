@@ -25,19 +25,17 @@ print(f'{round(post_fire-pre_fire, 2)}s')
 print(f'Amount of pixels:           {data[0]}')
 print(f'Amount of red pixels:       {data[1]}')
 print(f'Percentage of red pixels:   {data[2]}%')
-
-
-print("Getting coordinates...      ", end="")
-pre_coords = perf_counter()
-num_fires, sizes, coordinates, coords = get_coords(processed_image)
-post_coords = perf_counter()
-print(f'{round(post_coords-pre_coords, 2)}s')
-
 if state:
     print(f'Potential fire detected')
+    print("Getting coordinates...      ", end="")
+    pre_coords = perf_counter()
+    num_fires, sizes, coordinates, coords = get_coords(processed_image)
+    post_coords = perf_counter()
+    print(f'{round(post_coords-pre_coords, 2)}s')
+    
+    
+    print(f'Number of fires:            {num_fires}')
+    print(f'Sizes of fires:             {sizes}')
+    print(f'coordinates of fires:       {coordinates}')
 else:
     print(f'No fire detected')
-
-print(f'Number of fires:            {num_fires}')
-#print(f'Sizes of fires:             {sizes}')
-#print(f'coordinates of fires:       {coordinates}')
