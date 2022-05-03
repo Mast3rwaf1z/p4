@@ -39,5 +39,5 @@ else:
     print(f'No fire detected')
 
 print(f'Number of fires:            {num_fires}')
-print(f'Sizes of fires:             {sizes}')
-print(f'coordinates of fires:       {coordinates}')
+#print(f'Sizes of fires:             {sizes}')
+#print(f'coordinates of fires:       {coordinates}')
