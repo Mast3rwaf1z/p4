@@ -4,17 +4,16 @@ from sys import argv
 from time import perf_counter
 from modules.fire_detection import detect_fire
 from modules.coordinate_detection import get_coords
-from modules.camera import capturePhoto
+from modules.camera import capturePhoto, captureRawData
 from modules.client import send
 
 print("Capturing image...           ", end="")
 time1 = perf_counter()
-location = capturePhoto()
+image = captureRawData()
 time2 = perf_counter()
 print(f'{round(time2-time1, 2)}s')
 
-image = imread(location)
-print(f'Analysing image:            {location}')
+print(f'Analysing image:            ')
 
 if len(argv) == 2:
     color_type = argv[1]
@@ -44,8 +43,9 @@ if state:
 else:
     print(f'No fire detected')
 
+imwrite("test.jpeg", image)
 print("Sending image...           ", end="")
 time1 = perf_counter()
-send(location)
+send("test.jpeg")
 time2 = perf_counter()
 print(f'{round(time2-time1, 2)}s')
