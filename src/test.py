@@ -13,7 +13,7 @@ image, timestamp = captureRawData()
 time2 = perf_counter()
 print(f'{round(time2-time1, 2)}s')
 
-print(f'Analysing image...'')
+print('Analysing image...')
 
 if len(argv) == 2:
     color_type = argv[1]

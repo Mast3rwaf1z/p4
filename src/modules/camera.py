@@ -14,15 +14,16 @@ def capturePhoto(resolution = (2592, 1944)):
     camera.capture(location)
     return location
 
-def captureRawData(resolution = (2592, 1944)):
+def captureRawData(resolution = (100, 100)):
     with picamera.PiCamera() as camera:
         camera.resolution = resolution
-        image = np.empty((2600, 2000, 3), dtype=np.uint8)
+        image = np.empty((112 * 128 * 3), dtype=np.uint8)
         dt = datetime.datetime.now(timezone.utc)
         utc_time = dt.replace(tzinfo=timezone.utc)
         utc_timestamp = utc_time.timestamp()
         camera.capture(image, 'rgb')
-        image = image[:resolution[0], :resolution[1]]
+        image = image.reshape((112, 128, 3))
+        image = image[:100, :100, :]
         return image, utc_timestamp
 
 if __name__ == "__main__":
