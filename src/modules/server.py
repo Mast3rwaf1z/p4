@@ -20,12 +20,12 @@ def create_server():
     return s
 
 def recv_name(socket):
-    data = socket.recv(BUFFER_SIZE)
+    data = socket.recv(32)
     for i in data:
         if(i == 35):
             name = data[:data.index(i)]
             data = data[data.index(i)+1:]
-    return name.decode('utf-8'), data
+    return name.decode("utf-8"), data
 
 def recv_image(socket, name, data_initial):
     file = open("photos/"+name, "wb")
