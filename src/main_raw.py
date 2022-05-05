@@ -45,7 +45,7 @@ else:
 
 print("Sending image...           ", end="")
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-cv2.imwrite(f"{timestamp}.jpeg", image)
+cv2.imwrite(f"{timestamp}.jpeg", image, [cv2.IMWRITE_JPEG_QUALITY, 42])
 time1 = perf_counter()
 send(f"{timestamp}.jpeg")
 time2 = perf_counter()
