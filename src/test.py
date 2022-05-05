@@ -1,5 +1,5 @@
 #this is main
-from cv2 import imread
+from cv2 import imread, imwrite
 from sys import argv
 
 from modules.fire_detection import detect_fire
@@ -24,3 +24,6 @@ print(f'Percentage of red pixels:   {data[2]}')
 print(f'Number of fires:            {num_fires}')
 print(f'Sizes of fires:             {sizes}')
 print(f'coordinates of fires:       {coordinates}')
+
+if state:
+    cv2.imwrite("test.jpeg", image)
