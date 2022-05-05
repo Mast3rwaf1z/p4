@@ -14,9 +14,9 @@ def capturePhoto(resolution = (2592, 1944)):
     camera.capture(location)
     return location
 
-def captureRawData():
+def captureRawData(resolution = (2592, 1944)):
     with picamera.PiCamera() as camera:
-        camera.resolution = res
+        camera.resolution = resolution
         image = np.empty((2600, 2000, 3), dtype=np.uint8)
         dt = datetime.datetime.now(timezone.utc)
         utc_time = dt.replace(tzinfo=timezone.utc)
