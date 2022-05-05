@@ -1,5 +1,5 @@
 #testing with raw data capture
-from cv2 import imwrite
+import cv2
 from sys import argv
 from time import perf_counter
 from modules.fire_detection import detect_fire
@@ -44,8 +44,8 @@ else:
     print(f'No fire detected')
 
 print("Sending image...           ", end="")
-im_rgb = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-imwrite("test.jpeg", image)
+image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+cv2.imwrite("test.jpeg", image)
 time1 = perf_counter()
 send("test.jpeg")
 time2 = perf_counter()
