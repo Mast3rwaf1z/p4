@@ -1,5 +1,7 @@
 from time import perf_counter
 import cv2 as cv
+from cv2 import cvtColor
+from cv2 import COLOR_BGR2GRAY
 import numpy as np
 from threading import Thread
 from multiprocessing import Manager, Pool, Process, Queue
@@ -20,7 +22,8 @@ def get_channel_from_index(data:tuple[cv.Mat, int]):
     return get_channel(data[0], data[1])
 
 def process_line(values:tuple[np.ndarray]):
-    return np.array([255 if values[2][i] > 165 and values[1][i] < 100 and values[0][i] < 100 else 0 for i in range(len(values[0]))])
+    #return np.array([255 if values[2][i] > 165 and values[1][i] < 100 and values[0][i] < 100 else 0 for i in range(len(values[0]))])
+    return np.array([255 if values[2][i]-((values[1][i]+values[0][i])/2) > 165 else 0 for i in range(len(values[0]))])
 
 def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, np.ndarray, tuple[int, int, float]]:
     #image = cv.imread("wildfire.jpg")
@@ -58,14 +61,13 @@ def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, np.ndarray, tuple[i
         for thread in threads:
             thread.start()
         for thread in threads:
-            thread.join()
+               thread.join()
         result = np.array([[255 if results[2][i][j] > 165 and results[1][i][j] < 100 and results[0][i][j] < 100 else 0 for j in range(len(image[i]))] for i in range(len(image))])
     elif color_type == "pool_rgb":
         with Pool(3) as p:
             results = p.map(get_channel_from_index, [(image, 0),(image, 1),(image, 2)])
         with Pool(4) as p:
             result = np.array(p.map(process_line, [(results[0][i], results[1][i], results[2][i]) for i in range(len(image))]))
-            
 
     all_pixels = sum([len(result[i]) for i in range(len(result))])
     red_pixels = np.count_nonzero(result)

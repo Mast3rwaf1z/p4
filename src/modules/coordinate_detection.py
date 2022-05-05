@@ -29,11 +29,9 @@ def check_line(matrix:list[list[int]], coords:list[list[tuple[int]]], y:int):
                 if left_fire == upper_fire:
                     upper_fire.append((x,y))
                 else:
-                    for _ in range(len(left_fire)):
-                        upper_fire.append(left_fire.pop(0))
+                    upper_fire.extend(left_fire)
+                    coords.remove(left_fire)
                     upper_fire.append((x,y))
-                    if left_fire == []:
-                        coords.pop(coords.index(left_fire))
             elif upper != 0:
                 get_fire(coords, (x, y-1)).append((x,y))
             elif left != 0:

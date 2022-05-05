@@ -1,6 +1,7 @@
 from multiprocessing import Process
 from os import system
 from glob import glob
+from sys import argv
 
 def exec():
     system("mkdir exports")
@@ -14,5 +15,9 @@ def exec():
     for p in processes:
         p.join()
     system("mv *.pdf exports/")
-
-exec()
+if argv.count("-f"):
+    name = argv[2][:len(argv[2])-7] + ".pdf"
+    system("mkdir exports")
+    system(f'drawio --crop -x -o {name} {argv[2]}')
+else:
+    exec()
