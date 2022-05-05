@@ -4,26 +4,40 @@ from sys import argv
 
 from modules.fire_detection import detect_fire
 from modules.coordinate_detection import get_coords
-from modules.camera import captureRawData
+from modules.camera import capturePhoto
 
-image, timestamp = captureRawData()
+location = capturePhoto()
 
-color_type = "rgb"
-
-state, processed_image, data = detect_fire(image, color_type)
-
-num_fires, sizes, coordinates, coords = get_coords(processed_image)
-
-if state:
-    print(f'Potential fire detected')
+if len(argv) > 1:
+    image = imread(argv[1])
+    print(f'Analysing image:            {argv[1]}')
 else:
-    print(f'No fire detected')
+    image = imread(location)
+    print(f'Analysing image:            {location}')
+if len(argv) == 3:
+    color_type = argv[2]
+else:
+    color_type = "rgb"
+
+print("Detecting fire...           ", end="")
+pre_fire = perf_counter()
+state, processed_image, data = detect_fire(image, color_type)
+post_fire = perf_counter()
+print(f'{round(post_fire-pre_fire, 2)}s')
 print(f'Amount of pixels:           {data[0]}')
 print(f'Amount of red pixels:       {data[1]}')
-print(f'Percentage of red pixels:   {data[2]}')
-print(f'Number of fires:            {num_fires}')
-print(f'Sizes of fires:             {sizes}')
-print(f'coordinates of fires:       {coordinates}')
-
+print(f'Percentage of red pixels:   {data[2]}%')
 if state:
-    cv2.imwrite("test.jpeg", image)
+    print(f'Potential fire detected')
+    print("Getting coordinates...      ", end="")
+    pre_coords = perf_counter()
+    num_fires, sizes, coordinates, coords = get_coords(processed_image)
+    post_coords = perf_counter()
+    print(f'{round(post_coords-pre_coords, 2)}s')
+
+
+    print(f'Number of fires:            {num_fires}')
+    print(f'Sizes of fires:             {sizes}')
+    print(f'coordinates of fires:       {coordinates}')
+else:
+    print(f'No fire detected')
