@@ -7,10 +7,11 @@ from modules.coordinate_detection import get_coords
 from modules.camera import capturePhoto
 from modules.client import send
 
+print("Capturing image...           ", end="")
 time1 = perf_counter()
 location = capturePhoto()
 time2 = perf_counter()
-print("Time to capture Image: {}".format(time2-time1))
+print(f'{round(time2-time1, 2)}s')
 
 image = imread(location)
 print(f'Analysing image:            {location}')
@@ -43,7 +44,8 @@ if state:
 else:
     print(f'No fire detected')
 
+print("Sending image...           ", end="")
 time1 = perf_counter()
 send(location)
 time2 = perf_counter()
-print("Time to Transmit: {}".format(time2-time1))
+print(f'{round(time2-time1, 2)}s')
