@@ -22,7 +22,7 @@ def captureRawData(resolution = (2592, 1944)):
         utc_time = dt.replace(tzinfo=timezone.utc)
         utc_timestamp = utc_time.timestamp()
         camera.capture(image, 'rgb')
-        image = image[:resolution[1], :resolution[2]]
+        image = image[:resolution[0], :resolution[1]]
         return image, utc_timestamp
 
 if __name__ == "__main__":
