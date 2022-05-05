@@ -4,9 +4,7 @@ import picamera
 import picamera.array
 import numpy as np
 
-res = (2592, 1944) # Default Resolution
-
-def capturePhoto(resolution = res):
+def capturePhoto(resolution = (2592, 1944)):
     camera = picamera.PiCamera()
     camera.resolution = resolution
     dt = datetime.datetime.now(timezone.utc)
