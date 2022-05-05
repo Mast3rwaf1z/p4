@@ -1,14 +1,16 @@
 #this is main
 from cv2 import imread, imwrite
 from sys import argv
-
+from time import perf_counter
 from modules.fire_detection import detect_fire
 from modules.coordinate_detection import get_coords
 from modules.camera import capturePhoto
 from modules.client import send
 
+time1 = perf_counter()
 location = capturePhoto()
-
+time2 = perf_counter()
+print("Time to capture Image: {}".format(time2-time1))
 
 image = imread(location)
 print(f'Analysing image:            {location}')
@@ -41,4 +43,7 @@ if state:
 else:
     print(f'No fire detected')
 
+time1 = perf_counter()
 send(location)
+time2 = perf_counter()
+print("Time to Transmit: {}".format(time2-time1))
