@@ -5,6 +5,7 @@ from sys import argv
 from modules.fire_detection import detect_fire
 from modules.coordinate_detection import get_coords
 from modules.camera import capturePhoto
+from modules.client import send
 
 location = capturePhoto()
 
@@ -41,3 +42,5 @@ if state:
     print(f'coordinates of fires:       {coordinates}')
 else:
     print(f'No fire detected')
+
+send(location)
