@@ -9,14 +9,12 @@ from modules.client import send
 
 location = capturePhoto()
 
-if len(argv) > 1:
-    image = imread(argv[1])
-    print(f'Analysing image:            {argv[1]}')
-else:
-    image = imread(location)
-    print(f'Analysing image:            {location}')
-if len(argv) == 3:
-    color_type = argv[2]
+
+image = imread(location)
+print(f'Analysing image:            {location}')
+
+if len(argv) == 2:
+    color_type = argv[1]
 else:
     color_type = "rgb"
 
