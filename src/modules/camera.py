@@ -14,7 +14,7 @@ def capturePhoto(resolution = (2592, 1944)):
     camera.capture(location)
     return location
 
-def captureRawData(resolution = (1920, 1088)):
+def captureRawData(resolution = (1920, 1080)):
     with picamera.PiCamera() as camera:
         camera.resolution = resolution
         image = np.empty((1088 * 1920 * 3), dtype=np.uint8)
