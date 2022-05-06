@@ -10,3 +10,4 @@ print(f'{round(time2-time1, 2)}s')
 print(image_data)
 
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+cv2.imwrite("test.jpeg", image, [cv2.IMWRITE_JPEG_QUALITY, 95])
