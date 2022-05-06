@@ -1,0 +1,10 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "java_impl/opencv-3.4.1-1.4.1.jar",
+        "java_impl/libs/opencv-455.jar"
+    ],
+    "java.project.sourcePaths": [
+        "."
+    ]
+}

@@ -1,10 +1,8 @@
 from time import perf_counter
 import cv2 as cv
-from cv2 import cvtColor
-from cv2 import COLOR_BGR2GRAY
 import numpy as np
 from threading import Thread
-from multiprocessing import Manager, Pool, Process, Queue
+from multiprocessing import  Pool, Queue
 try:
     from modules.get_channel import get_channel
 except:
