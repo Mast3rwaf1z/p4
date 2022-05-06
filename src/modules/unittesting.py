@@ -1,5 +1,6 @@
 import camera as cam
 import cv2
+from time import perf_counter
 
 print("Capturing image...           ", end="")
 time1 = perf_counter()
