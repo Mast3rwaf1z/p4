@@ -41,7 +41,6 @@ def recv_image(socket, name, data_initial):
 
 def receiver():
     s = create_server()
-    threads = []
     while True:
         c,a = s.accept()
         print('* Connection received from {}'.format(a))
