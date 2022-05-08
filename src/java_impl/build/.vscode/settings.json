@@ -1,0 +1,17 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "java_impl/opencv-3.4.1-1.4.1.jar",
+        "java_impl/libs/opencv-455.jar",
+        "java_impl/libs/opencv.jar"
+    ],
+    "java.project.sourcePaths": [
+        "."
+    ],
+    "java.project.outputPath": "java_impl/build",
+    "files.associations": {
+        "functional": "cpp",
+        "ostream": "cpp",
+        "list": "cpp"
+    }
+}

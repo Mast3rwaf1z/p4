@@ -1,2 +1,2 @@
-javac -classpath java_impl/libs/* java_impl/*.java
+javac -classpath libs/*.jar *.java
 java java_impl/subsystem

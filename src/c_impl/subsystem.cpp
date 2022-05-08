@@ -39,22 +39,24 @@ list<coordinate> get_fire(list<list<coordinate>> coords, int x, int y){
 }
 
 int** fire_detection_algorithm(Mat image){
-    int** result = new int*[image.cols];
-
+    int** result = new int*[image.rows];
     for(int i = 0; i < image.cols; i++){
-        result[i] = new int[image.rows];
-        for(int j = 0; j < image.rows; j++){
-            Vec3b values = image.at<Vec3b>(i, j);
-            result[i][j] = values.val[2] > 165 && values.val[1] < 100 && values.val[0] ? 255 : 0;
+        result[i] = new int[image.cols];
+    }
+
+    for(int i = 0; i < image.rows; i++){
+        for(int j = 0; j < image.cols; j++){
+            //cout << i << " " << j << endl;
+            result[i][j] = image.ptr(i, j)[2] > 165 && image.ptr(i, j)[1] < 100 && image.ptr(i, j)[0] < 100 ? 255 : 0;
         }
     }
     return result;
 }
 
-list<list<coordinate>> fire_identification_algorithm(int** matrix){
+list<list<coordinate>> fire_identification_algorithm(int** matrix, int N, int M){
     list<list<coordinate>> coords;
-    for(int y = 0; y < sizeof(matrix); y++){
-        for(int x = 0; x < sizeof(matrix[y]); x++){
+    for(int y = 0; y < M; y++){
+        for(int x = 0; x < N; x++){
             if(matrix[y][x] != 0){
                 if(x == 0 && y == 0){
                     coords.push_back(new_coordinate_list(x, y));
@@ -64,7 +66,7 @@ list<list<coordinate>> fire_identification_algorithm(int** matrix){
                 int left = matrix[y][x-1];
                 int upperleft = matrix[y-1][x-1];
                 if(upper == 0 && left == 0 && upperleft == 0){
-                    coords.push_back(new_coordinate_list(x, y));
+                    coords.push_back(new_coordinate_list(x, y)); //this line bad
                 }
                 else if(upper != 0 && left != 0){
                     list<coordinate> upper_fire = get_fire(coords, x, y-1);
@@ -110,7 +112,7 @@ int main(int argc, char* argv[]){
             red_pixels += processed_image[i][j] != 0 ? 1 : 0;
         }
     }
-    int percentage = red_pixels * 100 / all_pixels;
+    float percentage = red_pixels * 100 / all_pixels;
     cout << "Number of pixels:          " << all_pixels << endl;
     cout << "Number of red pixels:      " << red_pixels << endl;
     cout << "Percentage of red pixels:  " << percentage << endl;
@@ -118,7 +120,7 @@ int main(int argc, char* argv[]){
         cout << "Potential fire detected" << endl;
         cout << "Identifying fire...        ";
         time_t ident_pre = time(NULL);
-        list<list<coordinate>> coords = fire_identification_algorithm(processed_image);
+        list<list<coordinate>> coords = fire_identification_algorithm(processed_image, image.cols, image.rows);
         time_t ident_post = time(NULL);
         cout << ident_post-ident_pre << "sec" << endl;
         cout << "Number of fires:           " << coords.size() << endl;
@@ -129,7 +131,7 @@ int main(int argc, char* argv[]){
         cout << endl;
         cout << "Coordinates of fires:      ";
         for (list<coordinate> fire : coords){
-            cout  << "(" << fire.front().x << ", " + fire.front().y << ")";
+            cout  << "(" << fire.front().x << ", " << fire.front().y << ")";
         }
         cout << endl;
 
