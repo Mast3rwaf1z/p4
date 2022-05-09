@@ -20,8 +20,8 @@ def get_channel_from_index(data:tuple[cv.Mat, int]):
     return get_channel(data[0], data[1])
 
 def process_line(values:tuple[np.ndarray]):
-    #return np.array([255 if values[2][i] > 165 and values[1][i] < 100 and values[0][i] < 100 else 0 for i in range(len(values[0]))])
-    return np.array([255 if values[2][i]-((values[1][i]+values[0][i])/2) > 165 else 0 for i in range(len(values[0]))])
+    return np.array([255 if values[2][i] > 165 and values[1][i] < 100 and values[0][i] < 100 else 0 for i in range(len(values[0]))])
+    #return np.array([255 if values[2][i]-((values[1][i]+values[0][i])/2) > 165 else 0 for i in range(len(values[0]))])
 
 def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, np.ndarray, tuple[int, int, float]]:
     #image = cv.imread("wildfire.jpg")
