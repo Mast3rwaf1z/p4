@@ -1,3 +1,2 @@
-javac -cp java_impl:java_impl/libs/opencv.jar java_impl/*.java
-
-java -cp .:java_impl/libs/opencv.jar java_impl.subsystem
+javac -cp java_impl:java_impl/libs/opencv.jar -d java_impl/build java_impl/*.java
+java -cp java_impl/build:java_impl/libs/opencv.jar java_impl.subsystem
