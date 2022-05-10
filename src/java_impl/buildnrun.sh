@@ -1,2 +1,3 @@
-javac -classpath libs/*.jar *.java
-java java_impl/subsystem
+javac -cp java_impl:java_impl/libs/opencv.jar java_impl/*.java
+
+java -cp .:java_impl/libs/opencv.jar java_impl.subsystem
