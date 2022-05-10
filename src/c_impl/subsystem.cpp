@@ -1,5 +1,5 @@
 #include <iostream>
-#include <opencv2/opencv.hpp>
+#include <opencv4/opencv2/opencv.hpp>
 using namespace std;
 using namespace cv;
 
@@ -103,7 +103,7 @@ int main(int argc, char* argv[]){
     time_t detect_pre = time(NULL);
     int** processed_image = fire_detection_algorithm(image);
     time_t detect_post = time(NULL);
-    cout << detect_post-detect_pre << "sec" << endl;
+    cout << detect_post-detect_pre << "ms" << endl;
     int all_pixels = 0;
     int red_pixels = 0;
     for(int i = 0; i < image.cols; i++){

@@ -20,8 +20,10 @@ def get_channel_from_index(data:tuple[cv.Mat, int]):
     return get_channel(data[0], data[1])
 
 def process_line(values:tuple[np.ndarray]):
-    #return np.array([255 if values[2][i] > 165 and values[1][i] < 100 and values[0][i] < 100 else 0 for i in range(len(values[0]))])
-    return np.array([255 if values[2][i]-((values[1][i]+values[0][i])/2) > 165 else 0 for i in range(len(values[0]))])
+    return np.array([255 if values[2][i] > 165 and values[1][i] < 100 and values[0][i] < 100 else 0 for i in range(len(values[0]))])
+
+def process_line_ir(values:tuple[np.ndarray]):
+    return np.array([255 if values[2][i] > 200 else 0 for i in range(len(values[0]))])
 
 def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, np.ndarray, tuple[int, int, float]]:
     #image = cv.imread("wildfire.jpg")
@@ -66,6 +68,7 @@ def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, np.ndarray, tuple[i
             results = p.map(get_channel_from_index, [(image, 0),(image, 1),(image, 2)])
         with Pool(4) as p:
             result = np.array(p.map(process_line, [(results[0][i], results[1][i], results[2][i]) for i in range(len(image))]))
+        
 
     all_pixels = sum([len(result[i]) for i in range(len(result))])
     red_pixels = np.count_nonzero(result)
@@ -83,6 +86,33 @@ def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, np.ndarray, tuple[i
         #print('No fire detected..')
         return False, result, data
 
+def detect_fire_ir(rgb_image:cv.Mat, ir_image:cv.Mat):
+    with Pool(3) as p:
+        ir_results = p.map(get_channel_from_index, [(ir_image, 0),(ir_image, 1),(ir_image, 2)])
+    with Pool(4) as p:
+        ir_result = np.array(p.map(process_line_ir, [(ir_results[0][i], ir_results[1][i], ir_results[2][i]) for i in range(len(ir_image))]))
+
+    with Pool(3) as p:
+        rgb_results = p.map(get_channel_from_index, [(rgb_image, 0),(rgb_image, 1),(rgb_image, 2)])
+    with Pool(4) as p:
+        rgb_result = np.array(p.map(process_line, [(rgb_results[0][i], rgb_results[1][i], rgb_results[2][i]) for i in range(len(rgb_image))]))
+    
+    result = np.array([[255 if rgb_result[i][j] != 0 and ir_result[i][j] != 0 else 0 for j in range(len(rgb_image[i]))] for i in range(len(rgb_image))])
+    all_pixels = sum([len(result[i]) for i in range(len(result))])
+    red_pixels = np.count_nonzero(result)
+    percentage = round(red_pixels * 100 / all_pixels, 2)
+
+
+    #if there are any white pixels on mask, sum will be > 0
+    red_detected = np.sum(result)
+    #yellow_detected = np.sum(mask2)
+    data = (all_pixels, red_pixels, percentage)
+    if red_detected > 0 and percentage < 1:
+        #print('Potential fire detected!')
+        return True, result, data
+    else: 
+        #print('No fire detected..')
+        return False, result, data
 
 if __name__ == "__main__":
     from sys import argv

@@ -3,7 +3,7 @@ from time import perf_counter
 from cv2 import imread
 from sys import argv
 
-from modules.fire_detection import detect_fire
+from modules.fire_detection import detect_fire, detect_fire_ir
 from modules.coordinate_detection import get_coords
 
 if len(argv) > 1:
@@ -11,15 +11,18 @@ if len(argv) > 1:
     print(f'Analysing image:            {argv[1]}')
 else:
     image = imread("images/smallfire.jpg")
-    print(f'Analysing image:            {"images/smallfire.jpg"}')
+    print(f'Analysing image:            {"images/firefirefire.jpg"}')
 if len(argv) == 3:
     color_type = argv[2]
 else:
     color_type = "rgb"
 
+ir_image = imread("images/IRFire1.png")
+
 print("Detecting fire...           ", end="")
 pre_fire = perf_counter()
-state, processed_image, data = detect_fire(image, color_type)
+#state, processed_image, data = detect_fire(image, color_type)
+state, processed_image, data = detect_fire_ir(image, ir_image)
 post_fire = perf_counter()
 print(f'{round(post_fire-pre_fire, 2)}s')
 print(f'Amount of pixels:           {data[0]}')
