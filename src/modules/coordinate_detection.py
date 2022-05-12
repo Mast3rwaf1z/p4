@@ -7,10 +7,10 @@ try:
 except:
     from get_channel import get_channel
 
-def get_fire(coords, coordinate): #get the list of pixels contained in the fire at a certain index
-    for fire in coords:
-        if coordinate in fire:
-            return fire
+def get_list_from_element(list, element):
+    for sublist in list:
+        if element in sublist:
+            return sublist
 
 def get_coords(matrix:list[list[int]]) -> tuple[int, list[str], list[tuple], list[list[tuple]]]:
     #expect the given matrix is of data type list[list[int]]
@@ -18,7 +18,7 @@ def get_coords(matrix:list[list[int]]) -> tuple[int, list[str], list[tuple], lis
     for y in range(len(matrix)):
         for x in range(len(matrix[y])):
             if matrix[y][x] != 0:
-                if x == 0 and y == 0:
+                if x == 0 or y == 0:
                     coords.append([(x,y)])
                     continue
                 upper = matrix[y-1][x]
@@ -27,20 +27,20 @@ def get_coords(matrix:list[list[int]]) -> tuple[int, list[str], list[tuple], lis
                 if upper == 0 and left == 0 and upperleft == 0:
                     coords.append([(x,y)])
                 elif upper != 0 and left != 0:
-                    upper_fire = get_fire(coords, (x, y-1))
-                    left_fire = get_fire(coords, (x-1, y))
-                    if left_fire == upper_fire:
-                        upper_fire.append((x,y))
+                    upper_list = get_list_from_element(coords, (x, y-1))
+                    left_list = get_list_from_element(coords, (x-1, y))
+                    if left_list == upper_list:
+                        upper_list.append((x,y))
                     else:
-                        upper_fire.extend(left_fire)
-                        coords.remove(left_fire)
-                        upper_fire.append((x,y))
+                        upper_list.extend(left_list)
+                        coords.remove(left_list)
+                        upper_list.append((x,y))
                 elif upper != 0:
-                    get_fire(coords, (x, y-1)).append((x,y))
+                    get_list_from_element(coords, (x, y-1)).append((x,y))
                 elif left != 0:
-                    get_fire(coords, (x-1, y)).append((x,y))
+                    get_list_from_element(coords, (x-1, y)).append((x,y))
                 elif upperleft != 0:
-                    get_fire(coords, (x-1, y-1)).append((x,y))
+                    get_list_from_element(coords, (x-1, y-1)).append((x,y))
     
     return len(coords), [f'{len(fire)}px' for fire in coords], [coordinate[0] for coordinate in coords], coords
 
