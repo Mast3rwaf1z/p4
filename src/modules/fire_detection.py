@@ -1,19 +1,12 @@
 from time import perf_counter
 import cv2 as cv
 import numpy as np
-from threading import Thread
-from multiprocessing import  Pool, Queue
+from multiprocessing import  Pool
 try:
     from modules.get_channel import get_channel
 except:
     from get_channel import get_channel
 
-def return_var(function, results, index):
-    results[index] = function()
-
-def mp_return(function, results:Queue):
-    results.put(function())
-    print()
 
 
 def get_channel_from_index(data:tuple[cv.Mat, int]):
@@ -52,17 +45,6 @@ def detect_fire(image:cv.Mat, color_type:str) -> tuple[bool, np.ndarray, tuple[i
         green = get_channel(image, 1)
         red   = get_channel(image, 2)
         result = np.array([[255 if red[i][j] > 165 and green[i][j] < 100 and blue[i][j] < 100 else 0 for j in range(len(image[i]))] for i in range(len(image))])
-    elif color_type == "threaded_rgb":
-        threads:list[Thread] = list()
-        results = np.array([np.ndarray, np.ndarray, np.ndarray])
-        threads.append(Thread(target=return_var, args=(lambda: get_channel(image, 0), results, 0,)))
-        threads.append(Thread(target=return_var, args=(lambda: get_channel(image, 1), results, 1,)))
-        threads.append(Thread(target=return_var, args=(lambda: get_channel(image, 2), results, 2,)))
-        for thread in threads:
-            thread.start()
-        for thread in threads:
-               thread.join()
-        result = np.array([[255 if results[2][i][j] > 165 and results[1][i][j] < 100 and results[0][i][j] < 100 else 0 for j in range(len(image[i]))] for i in range(len(image))])
     elif color_type == "pool_rgb":
         with Pool(3) as p:
             results = p.map(get_channel_from_index, [(image, 0),(image, 1),(image, 2)])

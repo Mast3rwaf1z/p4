@@ -1,6 +1,3 @@
-#from multiprocessing import Process
-from multiprocessing import Pool
-
 
 try:
     from modules.get_channel import get_channel
