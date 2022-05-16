@@ -1,2 +1,2 @@
-g++ -o c_impl/subsystem c_impl/subsystem.cpp $(pkg-config --libs opencv4)
-./c_impl/subsystem
+g++ -o c_impl/main $(pkg-config --libs opencv4) -g c_impl/main.cpp
+./c_impl/main

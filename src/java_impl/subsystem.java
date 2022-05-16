@@ -46,9 +46,6 @@ public class subsystem {
         else{
             System.out.println("No fire detected");
         }
-
-
-
     }
     public static fire_detection fire_detection_algorithm(Mat image){
         fire_detection data = new fire_detection();

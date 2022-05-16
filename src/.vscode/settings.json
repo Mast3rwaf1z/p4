@@ -12,6 +12,8 @@
     "files.associations": {
         "functional": "cpp",
         "ostream": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "tuple": "cpp",
+        "*.tcc": "cpp"
     }
 }
