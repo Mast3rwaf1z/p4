@@ -1,11 +1,11 @@
-#include <iostream>
 #include <opencv4/opencv2/opencv.hpp>
-#include <vector>
-#include <tuple>
+#include <iostream>
 #include "fire_detection.cpp"
 #include "fire_clustering.cpp"
-using namespace std;
+#include <vector>
+#include <tuple>
 using namespace cv;
+using namespace std;
 
 int main(int argc, char* argv[]){
     String filename = argc > 1 ? argv[1] : "images/smallfire.jpg";
@@ -15,7 +15,7 @@ int main(int argc, char* argv[]){
     time_t detect_pre = time(NULL);
     matrix processed_image = fire_detection_algorithm(image);
     time_t detect_post = time(NULL);
-    cout << detect_post-detect_pre << "ms" << endl;
+    cout << detect_post-detect_pre << "sec" << endl;
     int all_pixels = 0;
     int red_pixels = 0;
     for(int i = 0; i < image.cols; i++){
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]){
         cout << "Potential fire detected" << endl;
         cout << "Identifying fire...        ";
         time_t ident_pre = time(NULL);
-        cluster_list coords = fire_clustering_algorithm(processed_image, image.cols, image.rows);
+        list<cluster> coords = fire_clustering_algorithm(processed_image, image.cols, image.rows);
         time_t ident_post = time(NULL);
         cout << ident_post-ident_pre << "sec" << endl;
         cout << "Number of fires:           " << coords.size() << endl;
