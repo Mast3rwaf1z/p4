@@ -47,7 +47,12 @@ def receiver():
         name, data = recv_name(c)
         recv_image(c, name, data)
         openImage('photos/'+name)
-    socket.close()
+        c.close()
+        c,a = s.accept()
+        coordinates = c.recv(1024)
+        print(f'Coordinates of fire: {coordinates.decode()}')
+        c.close()
+    s.close()
 
 if __name__ == "__main__":
     receiver()
