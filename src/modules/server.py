@@ -37,7 +37,7 @@ def recv_image(socket, name, data_initial):
             data = socket.recv(BUFFER_SIZE)
         break
     file.close()
-    print("{} saved".format(name))
+    print(f'Timestamp: {name.split(".jpeg")[0]}')
 
 def receiver():
     s = create_server()
