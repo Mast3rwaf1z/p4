@@ -68,9 +68,9 @@ def test():
 def AllImagemain():
     for i in range(1,8):
         if i>1 or i<6:
-            main(f'Image{i}.jpg')
+            main(f'../ModdyImages/Image{i}.jpg')
         else:
-            main(f'Image{i}.png')
+            main(f'../ModdyImages/Image{i}.png')
 
 if __name__ == "__main__":
     main("../ModdyImages/Image1.png")
