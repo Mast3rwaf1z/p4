@@ -42,11 +42,12 @@ if state:
     print(f'coordinates of fires:       {coordinates}')
 else:
     print(f'No fire detected')
+    coordinates = ()
 
 print("Sending image...           ", end="")
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 cv2.imwrite(f"{timestamp}.jpeg", image, [cv2.IMWRITE_JPEG_QUALITY, 42])
 time1 = perf_counter()
-send(f"{timestamp}.jpeg")
+send(f"{timestamp}.jpeg", coordinates)
 time2 = perf_counter()
 print(f'{round(time2-time1, 2)}s')
