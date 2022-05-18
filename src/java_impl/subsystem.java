@@ -80,7 +80,7 @@ public class subsystem {
         for (int y = 0; y < matrix.length; y++) {
             for (int x = 0; x < matrix[y].length; x++) {
                 if(matrix[y][x] != 0){
-                    if(x == 0 && y == 0){
+                    if(x == 0 || y == 0){
                         coords.add(coordinate.new_coordinate_list(x, y));
                         continue;
                     }
