@@ -17,19 +17,21 @@ def send_image(socket, image_location):
     while(data):
         socket.send(data)
         data = file.read(1024)
-    socket.close()
 
 def send_name(socket, image_location):
     file_name = os.path.basename(image_location) + "#"
     socket.send(file_name.encode())
     #socket.recv(512)
 
-def send(image_path):
+def send(image_path, coords):
     socket = connectToServer()
     send_name(socket, image_path)
     send_image(socket, image_path)
+    socket.close()
+    socket = connectToServer()
+    coords = str(coords)
+    coords = coords.encode()
+    socket.send(coords)
 
 if __name__ == "__main__":
-    send("../images/nofire.jpg")
-    time.sleep(5)
-    send("../images/firefirefire.jpg")
+    send("../images/nofire.jpg", ((10, 2),(40,3)))
