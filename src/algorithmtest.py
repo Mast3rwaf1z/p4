@@ -2,6 +2,7 @@
 from time import perf_counter
 from cv2 import imread
 from sys import argv
+import matplotlib.pyplot as plt
 
 from modules.fire_detection import detect_fire
 from modules.coordinate_detection import get_coords
@@ -20,29 +21,31 @@ fp = 0
 tn = 0
 tp = 0
 
+times = []
+
 def tester(path):
     image = imread(path)
-    print(f'Analysing image:            {path}')
-    print("Detecting fire...           ", end="")
-    pre_fire = perf_counter()
+    #print(f'Analysing image:            {path}')
+    #print("Detecting fire...           ", end="")
+    #pre_fire = perf_counter()
     state, processed_image, data = detect_fire(image, color_type)
-    post_fire = perf_counter()
-    print(f'{round(post_fire-pre_fire, 2)}s')
-    print(f'Amount of pixels:           {data[0]}')
-    print(f'Amount of red pixels:       {data[1]}')
-    print(f'Percentage of red pixels:   {data[2]}%')
+    #post_fire = perf_counter()
+    #print(f'{round(post_fire-pre_fire, 2)}s')
+    #print(f'Amount of pixels:           {data[0]}')
+    #print(f'Amount of red pixels:       {data[1]}')
+    #print(f'Percentage of red pixels:   {data[2]}%')
     if state:
         print(f'Potential fire detected')
-        print("Getting coordinates...      ", end="")
-        pre_coords = perf_counter()
+        #print("Getting coordinates...      ", end="")
+        #pre_coords = perf_counter()
         num_fires, sizes, coordinates, coords = get_coords(processed_image)
-        post_coords = perf_counter()
-        print(f'{round(post_coords-pre_coords, 2)}s')
+        #post_coords = perf_counter()
+        #print(f'{round(post_coords-pre_coords, 2)}s')
 
 
-        print(f'Number of fires:            {num_fires}')
-        print(f'Sizes of fires:             {sizes}')
-        print(f'coordinates of fires:       {coordinates}')
+        #print(f'Number of fires:            {num_fires}')
+        #print(f'Sizes of fires:             {sizes}')
+        #print(f'coordinates of fires:       {coordinates}')
         return True
     else:
         print(f'No fire detected')
@@ -50,7 +53,10 @@ def tester(path):
 
 for i in range(1, 53):
     print(f'Test {i} running now')
+    time1 = perf_counter()
     y = tester(f"modules/fires/{i}.png")
+    time2 = perf_counter()
+    times.append(time2-time1)
     if(y):
         fires[i] = 1
 
@@ -70,3 +76,6 @@ print(f'False Positive: {fp}')
 print(f'True Negative: {tn}')
 print(f'False Negative: {fn}')
 print(f'Accuracy: {((tp+tn)/(tp+fp+tn+fn))*100}')
+
+plt.hist(times, bins=20)
+plt.show()
