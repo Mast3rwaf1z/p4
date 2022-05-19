@@ -1,0 +1,187 @@
+Test 3 running now
+Analysing image:            modules/fires/SmallFires/3.png
+Detecting fire...           6.99s
+Amount of pixels:           5038848
+Amount of red pixels:       1
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.38s
+Number of fires:            1
+Sizes of fires:             ['1px']
+coordinates of fires:       [(31, 29)]
+Test 6 running now
+Analysing image:            modules/fires/SmallFires/6.png
+Detecting fire...           6.51s
+Amount of pixels:           5038848
+Amount of red pixels:       1
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.32s
+Number of fires:            1
+Sizes of fires:             ['1px']
+coordinates of fires:       [(58, 48)]
+Test 9 running now
+Analysing image:            modules/fires/SmallFires/9.png
+Detecting fire...           6.74s
+Amount of pixels:           5038848
+Amount of red pixels:       24
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.26s
+Number of fires:            3
+Sizes of fires:             ['1px', '1px', '22px']
+coordinates of fires:       [(43, 13), (39, 59), (42, 61)]
+Test 12 running now
+Analysing image:            modules/fires/SmallFires/12.png
+Detecting fire...           7.34s
+Amount of pixels:           5038848
+Amount of red pixels:       2
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.39s
+Number of fires:            1
+Sizes of fires:             ['2px']
+coordinates of fires:       [(27, 59)]
+Test 15 running now
+Analysing image:            modules/fires/SmallFires/15.png
+Detecting fire...           6.72s
+Amount of pixels:           5038848
+Amount of red pixels:       2
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.49s
+Number of fires:            1
+Sizes of fires:             ['2px']
+coordinates of fires:       [(59, 43)]
+Test 18 running now
+Analysing image:            modules/fires/SmallFires/18.png
+Detecting fire...           7.06s
+Amount of pixels:           5038848
+Amount of red pixels:       1
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.4s
+Number of fires:            1
+Sizes of fires:             ['1px']
+coordinates of fires:       [(11, 58)]
+Test 21 running now
+Analysing image:            modules/fires/SmallFires/21.png
+Detecting fire...           7.01s
+Amount of pixels:           5038848
+Amount of red pixels:       1
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.27s
+Number of fires:            1
+Sizes of fires:             ['1px']
+coordinates of fires:       [(31, 61)]
+Test 24 running now
+Analysing image:            modules/fires/SmallFires/24.png
+Detecting fire...           6.46s
+Amount of pixels:           5038848
+Amount of red pixels:       1
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.35s
+Number of fires:            1
+Sizes of fires:             ['1px']
+coordinates of fires:       [(25, 70)]
+Test 27 running now
+Analysing image:            modules/fires/SmallFires/27.png
+Detecting fire...           7.01s
+Amount of pixels:           5038848
+Amount of red pixels:       1
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.3s
+Number of fires:            1
+Sizes of fires:             ['1px']
+coordinates of fires:       [(47, 51)]
+Test 30 running now
+Analysing image:            modules/fires/SmallFires/30.png
+Detecting fire...           6.86s
+Amount of pixels:           5038848
+Amount of red pixels:       1
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.35s
+Number of fires:            1
+Sizes of fires:             ['1px']
+coordinates of fires:       [(31, 27)]
+Test 33 running now
+Analysing image:            modules/fires/SmallFires/33.png
+Detecting fire...           7.14s
+Amount of pixels:           5038848
+Amount of red pixels:       5
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.59s
+Number of fires:            1
+Sizes of fires:             ['5px']
+coordinates of fires:       [(47, 61)]
+Test 36 running now
+Analysing image:            modules/fires/SmallFires/36.png
+Detecting fire...           7.73s
+Amount of pixels:           5038848
+Amount of red pixels:       2
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.6s
+Number of fires:            1
+Sizes of fires:             ['2px']
+coordinates of fires:       [(76, 49)]
+Test 39 running now
+Analysing image:            modules/fires/SmallFires/39.png
+Detecting fire...           8.49s
+Amount of pixels:           5038848
+Amount of red pixels:       1
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.52s
+Number of fires:            1
+Sizes of fires:             ['1px']
+coordinates of fires:       [(68, 62)]
+Test 42 running now
+Analysing image:            modules/fires/SmallFires/42.png
+Detecting fire...           8.07s
+Amount of pixels:           5038848
+Amount of red pixels:       3
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.48s
+Number of fires:            3
+Sizes of fires:             ['1px', '1px', '1px']
+coordinates of fires:       [(15, 45), (39, 60), (18, 71)]
+Test 45 running now
+Analysing image:            modules/fires/SmallFires/45.png
+Detecting fire...           6.6s
+Amount of pixels:           5038848
+Amount of red pixels:       1
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.26s
+Number of fires:            1
+Sizes of fires:             ['1px']
+coordinates of fires:       [(23, 57)]
+Test 48 running now
+Analysing image:            modules/fires/SmallFires/48.png
+Detecting fire...           6.47s
+Amount of pixels:           5038848
+Amount of red pixels:       1
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.25s
+Number of fires:            1
+Sizes of fires:             ['1px']
+coordinates of fires:       [(36, 47)]
+Test 51 running now
+Analysing image:            modules/fires/SmallFires/51.png
+Detecting fire...           6.32s
+Amount of pixels:           5038848
+Amount of red pixels:       1
+Percentage of red pixels:   0.0%
+Potential fire detected
+Getting coordinates...      3.39s
+Number of fires:            1
+Sizes of fires:             ['1px']
+coordinates of fires:       [(43, 32)]
