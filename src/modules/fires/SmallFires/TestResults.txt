@@ -10,7 +10,7 @@ Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(31, 29)]
 
-Verification: True
+Verification: Correctly found the one pixel.
 
 Test 6 running now
 Analysing image:            modules/fires/SmallFires/6.png
@@ -24,7 +24,7 @@ Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(58, 48)]
 
-Verification: True
+Verification: Correctly found the one pixel.
 
 Test 9 running now
 Analysing image:            modules/fires/SmallFires/9.png
@@ -38,7 +38,7 @@ Number of fires:            3
 Sizes of fires:             ['1px', '1px', '22px']
 coordinates of fires:       [(43, 13), (39, 59), (42, 61)]
 
-Verification: Only found 3 out of many
+Verification: Only found 3 out of many. Found 3 fires, but not the correct 3 fires.
 
 Test 12 running now
 Analysing image:            modules/fires/SmallFires/12.png
