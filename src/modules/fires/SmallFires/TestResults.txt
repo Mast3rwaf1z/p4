@@ -9,6 +9,9 @@ Getting coordinates...      3.38s
 Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(31, 29)]
+
+Verification: True
+
 Test 6 running now
 Analysing image:            modules/fires/SmallFires/6.png
 Detecting fire...           6.51s
@@ -20,6 +23,9 @@ Getting coordinates...      3.32s
 Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(58, 48)]
+
+Verification: True
+
 Test 9 running now
 Analysing image:            modules/fires/SmallFires/9.png
 Detecting fire...           6.74s
@@ -31,6 +37,9 @@ Getting coordinates...      3.26s
 Number of fires:            3
 Sizes of fires:             ['1px', '1px', '22px']
 coordinates of fires:       [(43, 13), (39, 59), (42, 61)]
+
+Verification: Only found 3 out of many
+
 Test 12 running now
 Analysing image:            modules/fires/SmallFires/12.png
 Detecting fire...           7.34s
@@ -42,6 +51,9 @@ Getting coordinates...      3.39s
 Number of fires:            1
 Sizes of fires:             ['2px']
 coordinates of fires:       [(27, 59)]
+
+Verification: Found 2 pixels out of more. Correctly found one fire.
+
 Test 15 running now
 Analysing image:            modules/fires/SmallFires/15.png
 Detecting fire...           6.72s
@@ -53,6 +65,9 @@ Getting coordinates...      3.49s
 Number of fires:            1
 Sizes of fires:             ['2px']
 coordinates of fires:       [(59, 43)]
+
+Verification: Found 2 pixels of 4 and correctly found only one fire.
+
 Test 18 running now
 Analysing image:            modules/fires/SmallFires/18.png
 Detecting fire...           7.06s
@@ -64,6 +79,9 @@ Getting coordinates...      3.4s
 Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(11, 58)]
+
+Verification: Found 1 out of 4-5 pixels. Correctly found 1 fire.
+
 Test 21 running now
 Analysing image:            modules/fires/SmallFires/21.png
 Detecting fire...           7.01s
@@ -75,6 +93,9 @@ Getting coordinates...      3.27s
 Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(31, 61)]
+
+Verification: Found the one pixel correctly
+
 Test 24 running now
 Analysing image:            modules/fires/SmallFires/24.png
 Detecting fire...           6.46s
@@ -86,6 +107,9 @@ Getting coordinates...      3.35s
 Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(25, 70)]
+
+Verification: Correctly found the one pixel.
+
 Test 27 running now
 Analysing image:            modules/fires/SmallFires/27.png
 Detecting fire...           7.01s
@@ -97,6 +121,9 @@ Getting coordinates...      3.3s
 Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(47, 51)]
+
+Verification: Correctly found the one pixel.
+
 Test 30 running now
 Analysing image:            modules/fires/SmallFires/30.png
 Detecting fire...           6.86s
@@ -108,6 +135,9 @@ Getting coordinates...      3.35s
 Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(31, 27)]
+
+Verification: Correctly found the one pixel.
+
 Test 33 running now
 Analysing image:            modules/fires/SmallFires/33.png
 Detecting fire...           7.14s
@@ -119,6 +149,9 @@ Getting coordinates...      3.59s
 Number of fires:            1
 Sizes of fires:             ['5px']
 coordinates of fires:       [(47, 61)]
+
+Verification: Found 5 pixels out of like 7. Correctly only found one fire.
+
 Test 36 running now
 Analysing image:            modules/fires/SmallFires/36.png
 Detecting fire...           7.73s
@@ -130,6 +163,9 @@ Getting coordinates...      3.6s
 Number of fires:            1
 Sizes of fires:             ['2px']
 coordinates of fires:       [(76, 49)]
+
+Verification: Found 2 out of 4 pixels. Correctly only found one fire.
+
 Test 39 running now
 Analysing image:            modules/fires/SmallFires/39.png
 Detecting fire...           8.49s
@@ -141,6 +177,9 @@ Getting coordinates...      3.52s
 Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(68, 62)]
+
+Verification: Found 1 out of 3 pixels, where each pixel is its own fire.
+
 Test 42 running now
 Analysing image:            modules/fires/SmallFires/42.png
 Detecting fire...           8.07s
@@ -152,6 +191,9 @@ Getting coordinates...      3.48s
 Number of fires:            3
 Sizes of fires:             ['1px', '1px', '1px']
 coordinates of fires:       [(15, 45), (39, 60), (18, 71)]
+
+Verification: Found 3 out of 4 pixels. Correctly found 3 different fires.
+
 Test 45 running now
 Analysing image:            modules/fires/SmallFires/45.png
 Detecting fire...           6.6s
@@ -163,6 +205,9 @@ Getting coordinates...      3.26s
 Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(23, 57)]
+
+Verification: Correctly found the one pixel.
+
 Test 48 running now
 Analysing image:            modules/fires/SmallFires/48.png
 Detecting fire...           6.47s
@@ -174,6 +219,9 @@ Getting coordinates...      3.25s
 Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(36, 47)]
+
+Verification: Correctly found the one pixel.
+
 Test 51 running now
 Analysing image:            modules/fires/SmallFires/51.png
 Detecting fire...           6.32s
@@ -185,3 +233,5 @@ Getting coordinates...      3.39s
 Number of fires:            1
 Sizes of fires:             ['1px']
 coordinates of fires:       [(43, 32)]
+
+Verification: Correctly found the one fire.
