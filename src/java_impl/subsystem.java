@@ -1,31 +1,43 @@
 package java_impl;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 
 public class subsystem {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        String filename = args.length == 1 ? args[0] : "images/smallfire.jpg";
+        String filename = args.length > 0 ? args[0] : "images/smallfire.jpg";
+        String type = args.length == 2 ? args[1] : "parallel";
         System.out.println("Analysing image:            " + filename);
+        System.out.println("Execution type:             " + type);
         Mat image =  Imgcodecs.imread(filename);
         System.out.print("Detecting fire...           ");
         long detect_pre = System.currentTimeMillis();
-        int[][] result = fire_detection_algorithm(image);
+        int[][] result = new int[image.rows()][image.cols()];
+        if(type.equalsIgnoreCase("parallel")){
+            result = parallel_fire_detection_algorithm(image);
+        }
+        else if(type.equalsIgnoreCase("sequential")){
+            result = fire_detection_algorithm(image);
+        }
         long detect_post = System.currentTimeMillis();
         System.out.println(detect_post-detect_pre + "ms");
         int red_detected = 0;
         int all_pixels = 0;
         int red_pixels = 0;
-        for(int[] rows : result){
-            for(int element : rows){
-                all_pixels += 1;
+        for(int[] row : result){
+            for(int element : row){
                 red_pixels += element != 0 ? 1 : 0;
                 red_detected += element;
             }
+            all_pixels += row.length;
         }
         int percentage = red_pixels * 100 / all_pixels;
         
@@ -58,7 +70,7 @@ public class subsystem {
             System.out.println("No fire detected");
         }
     }
-    public static int[][] fire_detection_algorithm(Mat image){
+    private static int[][] fire_detection_algorithm(Mat image){
         int[][] result = new int[image.rows()][image.cols()];
         for (int i = 0; i < image.rows(); i++) {
             for (int j = 0; j < image.cols(); j++) {
@@ -67,8 +79,28 @@ public class subsystem {
         }
         return result;
     }
-
-    public static ArrayList<cluster> fire_identification_algorithm(int[][] matrix){
+    private static int[] parallel_row(Mat image, int index){ 
+        int[] row = new int[image.cols()];
+        for(int i = 0; i < image.cols(); i++){
+            row[i] = image.get(index, i)[2] > 165 && image.get(index, i)[1] < 100 && image.get(index, i)[0] < 100 ? 255: 0;
+        }
+        return row;
+    }
+    private static int[][] parallel_fire_detection_algorithm(Mat image) throws InterruptedException, ExecutionException{
+        int[][] result = new int[image.rows()][image.cols()];
+        ExecutorService executor = Executors.newFixedThreadPool(4);
+        ArrayList<Future<int[]>> processes = new ArrayList<Future<int[]>>();
+        for(int i = 0; i < image.rows(); i++){
+            final int index = i;
+            processes.add(executor.submit(() -> parallel_row(image, index)));
+        }
+        for(int i = 0; i < processes.size(); i++){
+            result[i] = processes.get(i).get();
+        }
+        executor.shutdown();
+        return result;
+    }
+    private static ArrayList<cluster> fire_identification_algorithm(int[][] matrix){
         ArrayList<cluster> coords = new ArrayList<cluster>();
         for (int y = 0; y < matrix.length; y++) {
             for (int x = 0; x < matrix[y].length; x++) {
@@ -121,5 +153,4 @@ public class subsystem {
         }
         return null;
     }
-
 }
