@@ -18,11 +18,11 @@ if len(argv) == 3:
 else:
     color_type = "rgb"
 
-ir_image = imread("images/IRFire1.png")
+#ir_image = imread("images/IRFire1.png")
 print("Detecting fire...           ", end="")
 pre_fire = perf_counter()
-state, processed_image, data = detect_fire_ir(image, ir_image)
-#state, processed_image, data = fire_detection_algorithm(image, color_type)
+#state, processed_image, data = detect_fire_ir(image, ir_image)
+state, processed_image, data = fire_detection_algorithm(image, color_type)
 post_fire = perf_counter()
 print(f'{round(post_fire-pre_fire, 2)}s')
 print(f'Amount of pixels:           {data[0]}')

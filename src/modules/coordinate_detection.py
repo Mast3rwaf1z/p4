@@ -1,20 +1,15 @@
-#from multiprocessing import Process
-from multiprocessing import Pool
+coordinate = tuple[int, int]
+cluster = list[coordinate]
+Matrix = list[list[int]]
 
+def get_cluster(List:list[cluster], element:coordinate):
+    for Cluster in List:
+        if element in Cluster:
+            return Cluster
 
-try:
-    from modules.get_channel import get_channel
-except:
-    from get_channel import get_channel
-
-def get_list_from_element(list, element):
-    for sublist in list:
-        if element in sublist:
-            return sublist
-
-def get_coords(matrix:list[list[int]]) -> tuple[int, list[str], list[tuple], list[list[tuple]]]:
+def get_coords(matrix:Matrix) -> tuple[int, list[str], list[tuple], list[cluster]]:
     #expect the given matrix is of data type list[list[int]]
-    coords:list[list[tuple[int]]] = list()
+    coords:list[cluster] = list()
     for y in range(len(matrix)):
         for x in range(len(matrix[y])):
             if matrix[y][x] != 0:
@@ -27,20 +22,20 @@ def get_coords(matrix:list[list[int]]) -> tuple[int, list[str], list[tuple], lis
                 if upper == 0 and left == 0 and upperleft == 0:
                     coords.append([(x,y)])
                 elif upper != 0 and left != 0:
-                    upper_list = get_list_from_element(coords, (x, y-1))
-                    left_list = get_list_from_element(coords, (x-1, y))
-                    if left_list == upper_list:
-                        upper_list.append((x,y))
+                    upper_cluster = get_cluster(coords, (x, y-1))
+                    left_cluster = get_cluster(coords, (x-1, y))
+                    if left_cluster == upper_cluster:
+                        upper_cluster.append((x,y))
                     else:
-                        upper_list.extend(left_list)
-                        coords.remove(left_list)
-                        upper_list.append((x,y))
+                        upper_cluster.extend(left_cluster)
+                        coords.remove(left_cluster)
+                        upper_cluster.append((x,y))
                 elif upper != 0:
-                    get_list_from_element(coords, (x, y-1)).append((x,y))
+                    get_cluster(coords, (x, y-1)).append((x,y))
                 elif left != 0:
-                    get_list_from_element(coords, (x-1, y)).append((x,y))
+                    get_cluster(coords, (x-1, y)).append((x,y))
                 elif upperleft != 0:
-                    get_list_from_element(coords, (x-1, y-1)).append((x,y))
+                    get_cluster(coords, (x-1, y-1)).append((x,y))
     
     return len(coords), [f'{len(fire)}px' for fire in coords], [coordinate[0] for coordinate in coords], coords
 
@@ -48,6 +43,10 @@ if __name__ == "__main__":
     from cv2 import imread
     from sys import argv
     from os import chdir, path
+    try:
+        from modules.get_channel import get_channel
+    except:
+        from get_channel import get_channel
     chdir(path.dirname(argv[0])) #change directory to script location
     
     if len(argv) > 1:

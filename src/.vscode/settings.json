@@ -14,6 +14,10 @@
         "ostream": "cpp",
         "list": "cpp",
         "tuple": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "iostream": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
     }
 }

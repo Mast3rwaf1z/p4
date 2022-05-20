@@ -10,7 +10,6 @@ def process_line_ir(values):
     return np.array([255 if pixel[0] > 200 else 0 for pixel in values])
 
 def fire_detection_algorithm(image:cv.Mat, color_type:str) -> tuple[bool, np.ndarray, tuple[int, int, float]]:
-    #image = cv.imread("wildfire.jpg")
     color_type = color_type.lower()
     if color_type == "hsl":
         hsl = cv.cvtColor(image, cv.COLOR_BGR2HLS) # Converting BGR color scheme to HSV

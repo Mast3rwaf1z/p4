@@ -1,63 +1,78 @@
 #include <iostream>
-#include <opencv4/opencv2/opencv.hpp>
-#include <list>
+#include <vector>
 #include <tuple>
 using namespace std;
 
 /*  Fire Clustering Algorithm   */
 typedef tuple<int, int> coordinate;
-typedef list<coordinate> cluster;
+typedef vector<coordinate> cluster;
 
-cluster create_cluster(int x, int y){
-    cluster Cluster = cluster();
-    Cluster.push_back(coordinate(x, y));
+cluster new_cluster(coordinate c){
+    cluster Cluster;
+    Cluster.push_back(c);
     return Cluster;
 }
 
-cluster get_cluster(list<cluster> Cluster_list, coordinate element){
-    for(cluster Cluster : Cluster_list){
-        for(coordinate Coordinate : Cluster){
-            if(element == Coordinate){
-                return Cluster;
+/*vector<cluster> fire_clustering_algorithm(vector<coordinate> coordinates){
+    //expect an ordered vector of coordinates, element 0 has the lowest x value for pixels with the lowest y value
+    vector<cluster> coords;
+    coordinate c = coordinates.back();
+    coordinates.pop_back();
+    coords.push_back(new_cluster(c));
+    for(coordinate c1 : coordinates){
+        for(cluster Cluster : coords){
+            for(coordinate c2 : Cluster){
+                cout << coords.size() << endl;
+                //left coordinate non-zero
+                if(get<0>(c1) - get<0>(c2) == 1){
+                    Cluster.push_back(c1);
+                    coordinates.remove(c1);
+                }
+                //upper coordinate non-zero
+                else if(get<1>(c1) - get<1>(c2) == 1){
+                    Cluster.push_back(c1);
+                    coordinates.remove(c1);
+                }
+                //upper left coordinate non-zero
+                else if(get<0>(c1) - get<0>(c2) == 1 && get<1>(c1) - get<1>(c2)){
+                    Cluster.push_back(c1);
+                    coordinates.remove(c1);
+                }
+                //all coordinates are zero
+                else{
+                    coords.push_back(new_cluster(c1));
+                    coordinates.remove(c1);
+                }
             }
         }
     }
-    cout << "ERROR: cluster is not part of list" << endl;
-    exit(0);
-    return Cluster_list.back();
-}
+    return coords;
+}*/
 
-list<cluster> fire_clustering_algorithm(int** Matrix, int N, int M){
-    list<cluster> coords = list<cluster>();
-    for(int y = 0; y < M; y++){
-        for(int x = 0; x < N; x++){
-            if(Matrix[y][x] != 0){
-                int upper = Matrix[y-1][x];
-                int left = Matrix[y][x-1];
-                int upperleft = Matrix[y-1][x-1];
-                if(upper == 0 && left == 0 && upperleft == 0){
-                    coords.push_back(create_cluster(x, y));
+vector<cluster> fire_clustering_algorithm(vector<coordinate> coordinates){
+    vector<cluster> coords;
+    coordinate c = coordinates.back();
+    coordinates.pop_back();
+    coords.push_back(new_cluster(c));
+    for(int c1 = 0; c1 < coordinates.size(); c1++){
+        for(int C = 0; C < coords.size(); C++){
+            for(int c2 = 0; c2 < coords[C].size(); c2++){
+                //left coordinate non-zero
+                if(get<0>(coordinates[c1]) - get<0>(coords[C][c2]) == 1){
+                    cout << "here!" << endl;
+                    coords[C].push_back(coordinates[c1]);
                 }
-                else if(upper != 0 && left != 0){
-                    cluster upper_cluster = get_cluster(coords, coordinate(x, y-1));
-                    cluster left_cluster = get_cluster(coords, coordinate(x-1, y));
-                    if(upper_cluster == left_cluster){
-                        upper_cluster.push_back(coordinate(x, y));
-                    }
-                    else{
-                        upper_cluster.insert(upper_cluster.end(), left_cluster.begin(), left_cluster.end());
-                        coords.pop_back();
-                        upper_cluster.push_back(coordinate(x, y));
-                    }
+                //upper coordinate non-zero
+                else if(get<1>(coordinates[c1]) - get<1>(coords[C][c2]) == 1){
+                    coords[C].push_back(coordinates[c1]);
                 }
-                else if(upper != 0){
-                    get_cluster(coords, coordinate(x, y-1)).push_back(coordinate(x, y));
+                //upper left coordinate non-zero
+                else if(get<0>(coordinates[c1]) - get<0>(coords[C][c2]) == 1 && get<1>(coordinates[c1]) - get<1>(coords[C][c2])){
+                    coords[C].push_back(coordinates[c1]);
                 }
-                else if(left != 0){
-                    get_cluster(coords, coordinate(x-1, y)).push_back(coordinate(x, y));
-                }
-                else if(upperleft != 0){
-                    get_cluster(coords, coordinate(x-1, y-1)).push_back(coordinate(x, y));
+                //all coordinates are zero
+                else{
+                    coords.push_back(new_cluster(coordinates[c1]));
                 }
             }
         }
