@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-23T08:41:21.845Z" agent="5.0 (X11)" etag="Clp3b3EWyjtFeDjbqgRI" version="18.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-23T08:41:53.004Z" agent="5.0 (X11)" etag="k5FjsCJC1z4TJ8Cxf_Tf" version="18.1.1" type="github">
   <diagram id="W6hRS4fxS_qQSNCNkSlv" name="Page-1">
     <mxGraphModel dx="474" dy="253" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -57,11 +57,11 @@
             <mxPoint y="-7" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PxHE6Z1qSMxtlgOlSAJU-19" value="RPI" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="290" y="160" width="60" height="30" as="geometry" />
+        <mxCell id="PxHE6Z1qSMxtlgOlSAJU-19" value="Raspberry Pi" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="290" y="150" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="PxHE6Z1qSMxtlgOlSAJU-20" value="Personal Computer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="547" y="160" width="110" height="30" as="geometry" />
+          <mxGeometry x="550" y="150" width="93" height="30" as="geometry" />
         </mxCell>
         <mxCell id="EtBqtNH6mS4ZJgSaCwWE-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="310" y="300" width="20" height="30" as="geometry" />
