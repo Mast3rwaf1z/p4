@@ -42,17 +42,20 @@ public class subsystem {
         System.out.println("Percentage of red pixels:   " + percentage);
         System.out.println("Clustering time:            " + (cluster_post-cluster_pre) + "ms");
         System.out.println("Number of fires:            " + result.size());
-        System.out.print  ("Size of fires:              ");
-        for(cluster C : result){
-            System.out.print(C.size() + "px ");
-        }
-        System.out.println();
-        System.out.print  ("Coordinates of fires:       ");
-        for(cluster C : result){
-            System.out.print("(" + C.get(0)[0] + ", " + C.get(0)[1] + ")");
-        }
-        System.out.println();
+        if(args.length > 2 && args[2].equalsIgnoreCase("-v")){
 
+            System.out.print  ("Size of fires:              ");
+            for(cluster C : result){
+                System.out.print(C.size() + "px ");
+            }
+            System.out.println();
+            System.out.print  ("Coordinates of fires:       ");
+            for(cluster C : result){
+                System.out.print("(" + C.get(0)[0] + ", " + C.get(0)[1] + ")");
+            }
+            System.out.println();
+        }
+            
         
     }
     private static ArrayList<int[]> detection_algorithm(Mat image){

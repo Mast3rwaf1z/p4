@@ -53,17 +53,20 @@ public class subsystem {
             System.out.println((ident_post-ident_pre) + "ms");
 
             System.out.println("Number of fires:            " + coords.size());
-            System.out.print("Size of fires:              ");
-            for(cluster Cluster : coords){
-                System.out.print(Cluster.size() + "px");
-                System.out.print(" ");
+            if(args.length > 2 && args[2].equalsIgnoreCase("-v")){
+
+                System.out.print("Size of fires:              ");
+                for(cluster Cluster : coords){
+                    System.out.print(Cluster.size() + "px");
+                    System.out.print(" ");
+                }
+                System.out.println();
+                System.out.print("Coordinates of fires:       ");
+                for(cluster Cluster : coords){
+                    System.out.print("(" + Cluster.get(0)[0] + ", " + Cluster.get(0)[1] + ")");
+                }
+                System.out.println();
             }
-            System.out.println();
-            System.out.print("Coordinates of fires:       ");
-            for(cluster Cluster : coords){
-                System.out.print("(" + Cluster.get(0)[0] + ", " + Cluster.get(0)[1] + ")");
-            }
-            System.out.println();
         }
 
         else{
