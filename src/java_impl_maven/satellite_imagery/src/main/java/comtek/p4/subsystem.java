@@ -12,7 +12,8 @@ import org.opencv.imgcodecs.Imgcodecs;
 
 public class subsystem {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        nu.pattern.OpenCV.loadLocally();
+        //System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         String filename = args.length > 0 ? args[0] : "images/smallfire.jpg";
         String type = args.length > 1 ? args[1] : "sequential";
         Mat image = Imgcodecs.imread(filename);

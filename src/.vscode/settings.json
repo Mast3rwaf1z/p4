@@ -19,5 +19,6 @@
         "deque": "cpp",
         "string": "cpp",
         "vector": "cpp"
-    }
+    },
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

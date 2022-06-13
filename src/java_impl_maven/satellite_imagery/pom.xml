@@ -21,10 +21,11 @@
   <dependencies>
 
     <dependency>
-      <groupId>org.bytedeco</groupId>
-      <artifactId>opencv</artifactId>
-      <version>4.5.5-1.5.7</version>
+	    <groupId>org.openpnp</groupId>
+	    <artifactId>opencv</artifactId>
+	    <version>4.5.1-2</version>
     </dependency>
+
 
 
 
