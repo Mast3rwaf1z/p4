@@ -77,7 +77,7 @@ public class subsystem {
         int[][] result = new int[image.rows()][image.cols()];
         for (int i = 0; i < image.rows(); i++) {
             for (int j = 0; j < image.cols(); j++) {
-                result[i][j] = image.get(i, j)[2] > 165 && image.get(i, j)[1] < 100 && image.get(i, j)[0] < 100 ? 255 : 0;
+                result[i][j] = image.get(i, j)[2] > 175 && image.get(i, j)[1] < 60 && image.get(i, j)[0] < 60 ? 255 : 0;
             }
         }
         return result;
@@ -85,7 +85,7 @@ public class subsystem {
     private static int[] parallel_row(Mat image, int index){ 
         int[] row = new int[image.cols()];
         for(int i = 0; i < image.cols(); i++){
-            row[i] = image.get(index, i)[2] > 165 && image.get(index, i)[1] < 100 && image.get(index, i)[0] < 100 ? 255: 0;
+            row[i] = image.get(index, i)[2] > 175 && image.get(index, i)[1] < 60 && image.get(index, i)[0] < 60 ? 255: 0;
         }
         return row;
     }

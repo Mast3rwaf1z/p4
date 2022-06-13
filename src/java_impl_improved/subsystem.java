@@ -62,7 +62,7 @@ public class subsystem {
         ArrayList<int[]> result = new ArrayList<int[]>();
         for(int i = 0; i < image.cols(); i++){
             for(int j = 0; j < image.rows(); j++){
-                if(image.get(j, i)[2] > 165 && image.get(j, i)[1] < 100 && image.get(j, i)[0] < 100){
+                if(image.get(j, i)[2] > 175 && image.get(j, i)[1] < 60 && image.get(j, i)[0] < 60){
                     result.add(new int[]{j, i});
                 }
             }
@@ -72,7 +72,7 @@ public class subsystem {
     private static ArrayList<int[]> parallel_row(Mat image, int index){
         ArrayList<int[]> result = new ArrayList<int[]>();
         for(int i = 0; i < image.rows(); i++){
-            if(image.get(i, index)[2] > 165 && image.get(i, index)[1] < 100 && image.get(i, index)[0] < 100){
+            if(image.get(i, index)[2] > 175 && image.get(i, index)[1] < 60 && image.get(i, index)[0] < 60){
                 result.add(new int[]{index, i});
             }
         }
