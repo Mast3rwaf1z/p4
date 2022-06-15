@@ -44,4 +44,34 @@ public class colorDetector {
         executor.shutdown();
         return result;
     }
+    public static int[][] old_detection_algorithm(Mat image){
+        int[][] result = new int[image.rows()][image.cols()];
+        for (int i = 0; i < image.rows(); i++) {
+            for (int j = 0; j < image.cols(); j++) {
+                result[i][j] = image.get(i, j)[2] > 175 && image.get(i, j)[1] < 60 && image.get(i, j)[0] < 60 ? 255 : 0;
+            }
+        }
+        return result;
+    }
+    private static int[] old_parallel_row(Mat image, int index){ 
+        int[] row = new int[image.cols()];
+        for(int i = 0; i < image.cols(); i++){
+            row[i] = image.get(index, i)[2] > 175 && image.get(index, i)[1] < 60 && image.get(index, i)[0] < 60 ? 255: 0;
+        }
+        return row;
+    }
+    public static int[][] parallel_old_detection_algorithm(Mat image) throws InterruptedException, ExecutionException{
+        int[][] result = new int[image.rows()][image.cols()];
+        ExecutorService executor = Executors.newFixedThreadPool(4);
+        ArrayList<Future<int[]>> processes = new ArrayList<Future<int[]>>();
+        for(int i = 0; i < image.rows(); i++){
+            final int index = i;
+            processes.add(executor.submit(() -> old_parallel_row(image, index)));
+        }
+        for(int i = 0; i < processes.size(); i++){
+            result[i] = processes.get(i).get();
+        }
+        executor.shutdown();
+        return result;
+    }
 }

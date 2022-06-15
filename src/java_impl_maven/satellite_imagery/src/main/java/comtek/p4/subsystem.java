@@ -17,12 +17,23 @@ public class subsystem {
         Mat image = Imgcodecs.imread(filename);
         long detect_pre = System.currentTimeMillis();
         ArrayList<int[]> coordinates = new ArrayList<>();
-        if(type.equalsIgnoreCase("sequential")){
-            coordinates = colorDetector.detection_algorithm(image);
+        int[][] old_coordinates = new int[image.rows()][image.cols()];
+
+        switch(type.toLowerCase()){
+            case "sequential":
+                coordinates = colorDetector.detection_algorithm(image);
+                break;
+            case "parallel":
+                coordinates = colorDetector.parallel_detection_algorithm(image);
+                break;
+            case "old_sequential":
+                old_coordinates = colorDetector.old_detection_algorithm(image);
+                break;
+            case "old_parallel":
+                old_coordinates = colorDetector.parallel_old_detection_algorithm(image);
+                break;
         }
-        else if(type.equalsIgnoreCase("parallel")){
-            coordinates = colorDetector.parallel_detection_algorithm(image);
-        }
+
         long detect_post = System.currentTimeMillis();
         int all_pixels = image.rows()*image.cols();
         int red_pixels = coordinates.size();
@@ -31,12 +42,18 @@ public class subsystem {
         System.out.println("Number of pixels:           " + all_pixels);
         System.out.println("Number of red pixels:       " + red_pixels);
         System.out.println("Percentage of red pixels:   " + percentage);
-        if(coordinates.size() == 0){
+        if(coordinates.size() == 0 && !(type.equalsIgnoreCase("old_sequential") || type.equalsIgnoreCase("old_parallel"))){
             System.out.println("No fire was Detected");
             System.exit(0);
         }
+        ArrayList<cluster> result = new ArrayList<cluster>();
         long cluster_pre = System.currentTimeMillis();
-        ArrayList<cluster> result = cluster.clustering_algorithm(coordinates);
+        if(type.equalsIgnoreCase("parallel") || type.equalsIgnoreCase("sequential")){
+            result = cluster.clustering_algorithm(coordinates);
+        }
+        else if(type.equalsIgnoreCase("old_parallel") || type.equalsIgnoreCase("old_sequential")){
+            result = cluster.old_clustering_algorithm(old_coordinates);
+        }
         long cluster_post = System.currentTimeMillis();
         
 
