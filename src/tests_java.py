@@ -1,12 +1,12 @@
 from os import system, listdir, path
 from time import perf_counter
 
-image_path = "modules/fires"
+image_path = "modules/fires/BigFires"
 
 images = [file for file in listdir(image_path) if path.isfile(path.join(image_path, file))]
 images.sort()
-print(images)
-print("running 52 tests of improved java algorithm sequentially:")
+image_size = len(images)
+print(f'running {image_size} tests of improved java algorithm sequentially:')
 sequential_times = list()
 for image in images:
     pre = perf_counter()
@@ -15,7 +15,7 @@ for image in images:
     sequential_times.append(post-pre)
 
 parallel_times = list()
-print("running 52 tests of improved java algorithm in parallel:")
+print(f'running {image_size} tests of improved java algorithm in parallel:')
 for image in images:
     pre = perf_counter()
     system(f'java -jar src.jar {path.join(image_path, image)} parallel >> /dev/null')
@@ -23,7 +23,7 @@ for image in images:
     parallel_times.append(post-pre)
 
 old_sequential_times = list()
-print("running 52 tests of old algorithm in java sequentially:")
+print(f'running {image_size} tests of old algorithm in java sequentially:')
 for image in images:
     pre = perf_counter()
     system(f'java -jar src.jar {path.join(image_path, image)} old_sequential >> /dev/null')
@@ -31,7 +31,7 @@ for image in images:
     old_sequential_times.append(post-pre)
 
 old_parallel_times = list()
-print("running 52 tests of old algorithm in java in parallel:")
+print(f'running {image_size} tests of old algorithm in java in parallel:')
 for image in images:
     pre = perf_counter()
     system(f'java -jar src.jar {path.join(image_path, image)} old_parallel >> /dev/null')
@@ -39,7 +39,7 @@ for image in images:
     old_parallel_times.append(post-pre)
 
 python_sequential_times = list()
-print("running 52 tests of old algorithm in python sequentially:")
+print(f'running {image_size} tests of old algorithm in python sequentially:')
 for image in images:
     pre = perf_counter()
     system(f'python fire_detection_subsystem.py {path.join(image_path, image)} rgb >> /dev/null')
@@ -47,7 +47,7 @@ for image in images:
     python_sequential_times.append(post-pre)
 
 python_parallel_times = list()
-print("running 52 tests of old algorithm in python in parallel:")
+print(f'running {image_size} tests of old algorithm in python in parallel:')
 for image in images:
     pre = perf_counter()
     system(f'python fire_detection_subsystem.py {path.join(image_path, image)} pool_rgb >> /dev/null')
