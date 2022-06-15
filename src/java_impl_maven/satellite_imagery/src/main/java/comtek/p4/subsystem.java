@@ -46,13 +46,13 @@ public class subsystem {
             System.out.println("No fire was Detected");
             System.exit(0);
         }
-        ArrayList<cluster> result = new ArrayList<cluster>();
+        ArrayList<Cluster> result = new ArrayList<Cluster>();
         long cluster_pre = System.currentTimeMillis();
         if(type.equalsIgnoreCase("parallel") || type.equalsIgnoreCase("sequential")){
-            result = cluster.clustering_algorithm(coordinates);
+            result = Cluster.clustering_algorithm(coordinates);
         }
         else if(type.equalsIgnoreCase("old_parallel") || type.equalsIgnoreCase("old_sequential")){
-            result = cluster.old_clustering_algorithm(old_coordinates);
+            result = Cluster.old_clustering_algorithm(old_coordinates);
         }
         long cluster_post = System.currentTimeMillis();
         
@@ -63,13 +63,13 @@ public class subsystem {
         if(args.length > 2 && args[2].equalsIgnoreCase("-v")){
 
             System.out.print  ("Size of fires:              ");
-            for(cluster C : result){
-                System.out.print(C.size() + "px ");
+            for(Cluster cluster : result){
+                System.out.print(cluster.size() + "px ");
             }
             System.out.println();
             System.out.print  ("Coordinates of fires:       ");
-            for(cluster C : result){
-                System.out.print("(" + C.get(0)[0] + ", " + C.get(0)[1] + ")");
+            for(Cluster cluster : result){
+                System.out.print("(" + cluster.get(0)[0] + ", " + cluster.get(0)[1] + ")");
             }
             System.out.println();
         }
